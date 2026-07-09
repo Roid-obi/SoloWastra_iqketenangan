@@ -1,6 +1,6 @@
 # Aturan Pengembangan AI (AGENTS.md)
 
-Project: **SoloWastra** (Frontend Only, Astro 7, Tailwind v4, Three.js)
+Project: **SoloWastra** (Frontend Only, Astro 7, Tailwind v4)
 
 ## 📌 Development Server
 - Gunakan command berikut untuk menjalankan server development:
@@ -25,14 +25,9 @@ Project: **SoloWastra** (Frontend Only, Astro 7, Tailwind v4, Three.js)
 - Gunakan Lenis untuk efek *smooth scrolling* di seluruh halaman.
 - Pastikan animasi berjalan lancar (60fps) dan tidak menyebabkan pergerakan mendadak yang tidak rapi.
 
-## 🧊 Elemen 3D (Three.js & React Three Fiber)
-- Integrasikan komponen React (React Three Fiber) ke dalam Astro menggunakan direktif *client:load* atau *client:visible* (misalnya `<Canvas client:visible />`).
-- Optimalkan model 3D (gunakan format `.glb`).
-- Sediakan UI *loading state* saat model 3D sedang dimuat.
-
 ## 🧩 Struktur Komponen Astro
 - Gunakan Astro component (`.astro`) sebisa mungkin untuk HTML statis guna meminimalkan JavaScript di sisi *client*.
-- Hanya gunakan React komponen (`.tsx`/`.jsx`) jika butuh interaktif kompleks atau merender 3D (`Three.js`).
+- Hanya gunakan React komponen (`.tsx`/`.jsx`) jika butuh interaktivitas kompleks.
 - Gambar harus menggunakan format **AVIF** dan dirender menggunakan modul `astro:assets` (contoh: komponen `<Image />` atau `<Picture />`).
 
 ## ⚙️ Optimasi dan Code Quality (Biome)
@@ -47,9 +42,8 @@ Project: **SoloWastra** (Frontend Only, Astro 7, Tailwind v4, Three.js)
   - [Assets](https://docs.astro.build/en/guides/assets/)
 - GSAP Documentation: [https://gsap.com/docs/v3/](https://gsap.com/docs/v3/)
 - Tailwind CSS v4 Documentation: [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
-- React Three Fiber: [https://r3f.docs.pmnd.rs/](https://r3f.docs.pmnd.rs/)
 
-## ?? Tema & Objektif Proyek
+## 🎯 Tema & Objektif Proyek
 - **Tema:** Culture Verse: Preserving Heritage Through Design (SDG 11)
 - **Topik Utama:** Batik Solo
 - **Nama Brand:** SoloWastra

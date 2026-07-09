@@ -31,7 +31,7 @@ Project ini secara langsung mendukung pencapaian **SDG 11 (Sustainable Cities an
 - **Proses Pembuatan Batik**: Visualisasi tahap demi tahap pembuatan batik tradisional.
 - **Responsive Design**: Tampilan optimal di berbagai perangkat (Desktop, Tablet, Mobile).
 - **Smooth Scrolling & Scroll Animation**: Animasi dinamis menggunakan GSAP, Motion, dan Lenis.
-- **3D Experience**: Elemen 3D interaktif menggunakan Three.js dan React Three Fiber.
+
 - **Optimized Images**: Pemuatan aset sangat cepat menggunakan format AVIF modern.
 
 <!-- Tabel Teknologi yang Digunakan -->
@@ -42,9 +42,10 @@ Project ini secara langsung mendukung pencapaian **SDG 11 (Sustainable Cities an
 | **Bahasa** | TypeScript | Type-safe JavaScript untuk penulisan kode yang lebih aman |
 | **Styling** | Tailwind CSS v4 | Utility-first CSS framework untuk *styling* cepat dan responsif |
 | **Animasi** | Motion, GSAP, ScrollTrigger, Lenis | Library pendukung animasi interaktif dan *smooth scrolling* |
-| **3D** | Three.js, React Three Fiber, Drei | Merender grafis 3D interaktif yang ringan di browser |
+
 | **Optimasi** | `astro:assets` | Fitur optimasi gambar otomatis bawaan Astro |
-| **Format Asset** | AVIF, SVG, GLB | Format aset modern, *vector*, dan model 3D |
+| **Format Asset** | AVIF, SVG | Format aset modern dan *vector* |
+
 | **Code Quality**| Biome | Linter dan formatter JavaScript/TypeScript masa depan |
 | **Runtime** | Bun | JavaScript runtime yang sangat cepat sebagai pengganti Node/npm |
 | **Version Control**| Git, GitHub | Sistem kontrol versi kode sumber |
@@ -56,7 +57,8 @@ Berikut adalah struktur folder utama dari project ini:
 
 ```text
 src/
-├── assets/      # Aset statis seperti gambar (AVIF, SVG), model 3D (GLB)
+├── assets/      # Aset statis seperti gambar (AVIF, SVG)
+
 ├── components/  # Komponen UI yang dapat digunakan kembali (Header, Footer, Card, dll.)
 ├── layouts/     # Layout utama halaman website (misal: struktur global HTML/Head)
 ├── pages/       # File routing Astro (setiap file .astro di sini menjadi halaman website)
@@ -106,7 +108,8 @@ Project ini menggunakan proses *Continuous Integration/Continuous Deployment* (C
 - **AVIF**: Format gambar yang jauh lebih kecil dari JPEG/PNG dengan kualitas visual yang sama.
 - **SVG**: Grafik vektor digunakan untuk ilustrasi dan ikon agar gambar tetap tajam pada resolusi layar apa pun.
 - **Lazy Loading**: Aset hanya dimuat (*download*) jika masuk ke dalam area layar pengguna.
-- **Code Splitting (Island Architecture Astro)**: Hanya JavaScript interaktif (seperti animasi atau Three.js) yang dikirimkan ke *client*, membuat halaman memuat dengan sangat cepat.
+- **Code Splitting (Island Architecture Astro)**: Hanya JavaScript interaktif (seperti animasi) yang dikirimkan ke *client*, membuat halaman memuat dengan sangat cepat.
+
 - **Static Site Generation (SSG)**: Tidak perlu *rendering* di sisi server saat pengguna mengakses situs, karena HTML sudah dibuat di awal.
 - **Tree Shaking**: Menghilangkan kode *library* yang tidak digunakan (oleh bundler) sehingga *bundle size* tetap minimal.
 
