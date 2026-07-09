@@ -48,3 +48,10 @@ Project: **SoloWastra** (Frontend Only, Astro 7, Tailwind v4, Three.js)
 - GSAP Documentation: [https://gsap.com/docs/v3/](https://gsap.com/docs/v3/)
 - Tailwind CSS v4 Documentation: [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
 - React Three Fiber: [https://r3f.docs.pmnd.rs/](https://r3f.docs.pmnd.rs/)
+
+## ?? Tema & Objektif Proyek
+- **Tema:** Culture Verse: Preserving Heritage Through Design (SDG 11)
+- **Topik Utama:** Batik Solo
+- **Nama Brand:** SoloWastra
+- **Judul Karya:** SoloWastra: Exploring the Legacy of Solo Batik
+- **Tujuan Utama:** Merancang landing page yang mengangkat kekayaan budaya lokal dengan pendekatan visual modern, interaktif, edukatif, namun tetap mempertahankan nilai tradisi bagi generasi masa kini.
