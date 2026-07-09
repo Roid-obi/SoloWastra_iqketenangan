@@ -1,0 +1,75 @@
+---
+import TimelineCard from "../components/TimelineCard.astro";
+
+const processes = [
+  {
+    image: "src/assets/image.png",
+    title: "Njaplak",
+    description:
+      "Memindahkan pola dari kertas ke kain mori dengan menjiplaknya.",
+  },
+  {
+    image: "src/assets/image.png",
+    title: "Nglowong",
+    description:
+      "Melekatkan lilin malam menggunakan canting sesuai dengan pola yang ada.",
+  },
+  {
+    image: "src/assets/image.png",
+    title: "Nembok",
+    description:
+      "Menutup bagian kain yang akan dibiarkan berwarna putih dengan malam.",
+  },
+  {
+    image: "src/assets/image.png",
+    title: "Medel & Dilodong",
+    description:
+      "Proses pewarnaan dan penghilangan lilin pada bagian tertentu.",
+  },
+  {
+    image: "src/assets/image.png",
+    title: "Nglorot",
+    description:
+      "Proses merebus kain untuk meluruhkan seluruh lilin malam secara menyeluruh.",
+  },
+];
+---
+
+<section
+  id="making-process-section"
+  class="flex flex-col justify-center items-center text-center min-h-screen overflow-hidden"
+>
+  <div id="pin-container" class="m-auto p-8">
+    <h2 id="header" class="font-heading sm:text-5xl text-2xl">
+      Di Balik Sebuah Mahakarya
+    </h2>
+    <p id="description" class="font-body sm:text-sm text-xs mt-4">
+      Proses panjang nan magis dalam menciptakan selembar Batik Solo Tulis
+    </p>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const section = document.getElementById("making-process-section");
+  const header = document.getElementById("header");
+  const description = document.getElementById("description");
+
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "+=3000",
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+      },
+    })
+    .from(header, { opacity: 0, y: 50, duration: 1 })
+    .from(description, { opacity: 0, y: 50, duration: 1 }, "-=0.5");
+</script>

@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import 'lenis/dist/lenis.css';
 ---
 
 <!doctype html>
@@ -14,14 +15,35 @@ import "../styles/global.css";
 	</head>
 	<body>
 		<slot />
+		<script>
+			import Lenis from 'lenis';
+			import { gsap } from 'gsap';
+			import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+			const lenis = new Lenis();
+
+			lenis.on('scroll', ScrollTrigger.update);
+
+			gsap.ticker.add((time) => {
+			  lenis.raf(time * 1000);
+			});
+
+			gsap.ticker.lagSmoothing(0);
+		</script>
 	</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+html, body {
+	margin: 0;
+    width: 100%;
+    min-height: 100vh;
+  	-ms-overflow-style: none; 
+	scrollbar-width: none;     
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+  display: none;
+}
 </style>
