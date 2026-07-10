@@ -1,3 +1,12 @@
-<div class="flex flex-col justify-center items-center text-center min-h-screen m-auto bg-amber-500">
-    <h2 class="text-2xl font-bold">Dummy Component</h2>
+---
+interface Props{
+    title: string;
+    color: string;
+}
+
+const { title, color } = Astro.props as Props;
+---
+
+<div class=`flex flex-col justify-center items-center text-center min-h-screen m-auto ${color}`>
+    <h2 class="text-2xl font-bold">{title}</h2>
 </div>

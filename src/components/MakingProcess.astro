@@ -1,51 +1,88 @@
 ---
-import TimelineCard from "../components/TimelineCard.astro";
+import ProcessCard from "../components/ProcessCard.astro";
+import stepImage from "../assets/image.png";
+
+const processImage = stepImage.src;
 
 const processes = [
   {
-    image: "src/assets/image.png",
-    title: "Njaplak",
+    image: processImage,
+    title: "Nyungging (Menggambar Pola)",
     description:
-      "Memindahkan pola dari kertas ke kain mori dengan menjiplaknya.",
+      "Seniman membuat sketsa motif di atas secarik kertas sebelum dipindahkan ke kain mori.",
   },
   {
-    image: "src/assets/image.png",
-    title: "Nglowong",
+    image: processImage,
+    title: "Nglowong (Menorehkan Malam)",
     description:
-      "Melekatkan lilin malam menggunakan canting sesuai dengan pola yang ada.",
+      "Menempelkan malam (lilin) panas menggunakan canting untuk mengikuti garis pola utama.",
   },
   {
-    image: "src/assets/image.png",
-    title: "Nembok",
+    image: processImage,
+    title: "Nembok (Menutup Kain)",
     description:
-      "Menutup bagian kain yang akan dibiarkan berwarna putih dengan malam.",
+      "Menutup bagian kain tertentu dengan malam agar tidak terkena warna saat proses pencelupan.",
   },
   {
-    image: "src/assets/image.png",
-    title: "Medel & Dilodong",
+    image: processImage,
+    title: "Medel (Pewarnaan)",
     description:
-      "Proses pewarnaan dan penghilangan lilin pada bagian tertentu.",
+      "Menyelupkan kain ke dalam pewarna alami. Proses ini bisa diulang berkali-kali untuk warna yang pekat.",
   },
   {
-    image: "src/assets/image.png",
-    title: "Nglorot",
+    image: processImage,
+    title: "Nglorod (Peluruhan)",
     description:
-      "Proses merebus kain untuk meluruhkan seluruh lilin malam secara menyeluruh.",
+      "Merebus kain dalam air mendidih untuk meluruhkan malam, memunculkan motif dan warna yang sesungguhnya.",
   },
 ];
 ---
 
 <section
-  id="making-process-section"
-  class="flex flex-col justify-center items-center text-center min-h-screen overflow-hidden"
+  id="mp-wrap"
+  class="relative min-h-dvh overflow-hidden bg-neutral-dark"
 >
-  <div id="pin-container" class="m-auto p-8">
-    <h2 id="header" class="font-heading sm:text-5xl text-2xl">
-      Di Balik Sebuah Mahakarya
-    </h2>
-    <p id="description" class="font-body sm:text-sm text-xs mt-4">
-      Proses panjang nan magis dalam menciptakan selembar Batik Solo Tulis
-    </p>
+  <div
+    id="mp-track"
+    class="flex h-dvh items-center will-change-transform"
+  >
+    <!-- Intro panel -->
+    <div class="mp-panel w-screen h-full shrink-0 flex flex-col justify-center items-center text-center px-6">
+      <div id="mp-intro-content" class="max-w-3xl">
+        <p class="font-mono text-accent/50 text-xs tracking-[0.3em] uppercase mb-6">
+          Tradisi & Proses
+        </p>
+        <h2 class="font-heading text-5xl sm:text-7xl lg:text-8xl text-neutral-light tracking-tight leading-[1.1]">
+          Di Balik Sebuah<br/>
+          <span class="text-accent">Mahakarya</span>
+        </h2>
+        <p class="font-body text-base sm:text-lg mt-6 mx-auto text-neutral-light/50 leading-relaxed">
+          Proses panjang nan magis dalam menciptakan selembar Batik Solo Tulis
+        </p>
+      </div>
+    </div>
+
+    <!-- Process steps -->
+    {processes.map((p, i) => (
+      <ProcessCard
+        image={p.image}
+        title={p.title}
+        description={p.description}
+        index={i}
+      />
+    ))}
+  </div>
+
+  <!-- Step progress dots -->
+  <div
+    id="mp-dots"
+    class="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 pointer-events-none"
+  >
+    {processes.map((_) => (
+      <div
+        class="mp-step-dot h-1.5 rounded-full transition-all duration-500 ease-out"
+      />
+    ))}
   </div>
 </section>
 
@@ -55,21 +92,64 @@ const processes = [
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const section = document.getElementById("making-process-section");
-  const header = document.getElementById("header");
-  const description = document.getElementById("description");
+  const wrap = document.getElementById("mp-wrap")!;
+  const track = document.getElementById("mp-track")!;
+  const panels = gsap.utils.toArray<HTMLElement>(".mp-panel");
+  const stepDots = gsap.utils.toArray<HTMLElement>(".mp-step-dot");
 
-  gsap
-    .timeline({
+  const reduce = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (reduce) {
+    wrap.style.overflow = "visible";
+    wrap.style.minHeight = "auto";
+    track.style.flexDirection = "column";
+    track.style.height = "auto";
+    track.style.alignItems = "stretch";
+    panels.forEach((p) => {
+      const el = p as HTMLElement;
+      el.style.height = "100dvh";
+      el.style.width = "100%";
+    });
+  } else {
+    const distance = (track.scrollWidth - window.innerWidth) * 2;
+
+    gsap.set("#mp-dots", { opacity: 0 });
+
+    const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: section,
+        trigger: wrap,
         start: "top top",
-        end: "+=3000",
-        scrub: true,
+        end: () => `+=${distance}`,
         pin: true,
-        anticipatePin: 1,
+        scrub: true,
+        invalidateOnRefresh: true,
+        onUpdate: () => {
+          const x = gsap.getProperty(track, "x") as number;
+          const absX = Math.abs(x);
+          const vw = window.innerWidth;
+          const currentPanel = Math.floor(absX / vw + 0.5);
+          stepDots.forEach((d, i) => {
+            const el = d as HTMLElement;
+            const isActive = currentPanel >= i + 1;
+            el.style.width = isActive ? "32px" : "6px";
+            el.style.backgroundColor = isActive
+              ? "var(--color-accent)"
+              : "rgba(253, 251, 247, 0.15)";
+          });
+        },
       },
-    })
-    .from(header, { opacity: 0, y: 50, duration: 1 })
-    .from(description, { opacity: 0, y: 50, duration: 1 }, "-=0.5");
+    });
+
+    tl.fromTo("#mp-intro-content > *", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.2, stagger: {each: 0.05, from: "start", ease: "easeOut"} })
+      .to("#mp-dots", { opacity: 1, duration: 0.1 })
+      .to(track, {
+        x: -(track.scrollWidth - window.innerWidth),
+        ease: "none",
+        duration: 0.91,
+      });
+
+    ScrollTrigger.refresh();
+  }
 </script>
