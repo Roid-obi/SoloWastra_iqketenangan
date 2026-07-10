@@ -34,8 +34,14 @@ const timelineData = [
 <section>
     <div id="timeline-container" class="min-h-screen relative bg-[url('src/assets/batik-9.jpg')] bg-cover bg-center">
         <div class="absolute inset-0 bg-black/80 flex items-center justify-center perspective-distant">
+            <div id="timeline-header" class="flex flex-col justify-center items-center min-h-screen m-auto text-center perspective-normal">
+                <h2 class="opacity-0 antialiased md:subpixel-antialiased font-heading text-5xl sm:text-7xl lg:text-8xl text-neutral-light tracking-tight leading-[1.1]" style="z-index: 2;">Melintasi L<span class="text-accent">o</span>rong Waktu</h2>
+                <p class="opacity-0 antialiased md:subpixel-antialiased font-body text-base sm:text-lg mt-6 mx-auto text-neutral-light/50 leading-relaxed" style="z-index: 1;">
+                    Jejak langkah Batik Solo dari tembok istana hingga panggung dunia.
+                </p>
+            </div>
             {timelineData.map((event, index) => (
-            <div id={`timeline-card-${index}`} class=`absolute top-0 ${index % 2 === 1 ? "right-50" : "left-50"} top-25` style={`z-index: ${timelineData.length - index};`}>
+            <div id={`timeline-card-${index}`} class=`absolute top-15 ${index % 2 === 1 ? "right-50" : "left-50"}` style={`z-index: ${timelineData.length - index};`}>
                 <TimelineCard
                     image={event.image}
                     title={event.title}
@@ -65,17 +71,20 @@ const timelineData = [
         scrollTrigger: {
             trigger: timelineContainer,
             start: "top top",
-            end: "+=600%",
+            end: "+=900%",
             scrub: 1,
             pin: true,
         },
     });
 
+    tl.fromTo("#timeline-header > *", { z: -100 }, { z: 0, opacity: 1, duration: 0.5, ease: "power2.out", stagger: {each: 0.1, from: "start", ease: "easeOut"} })
+      .to("#timeline-header > *", { z: 1000, y: 30, duration: 2, ease: "power2.in", stagger: {each: 0.1, from: "start", ease: "easeIn"} }, "+=1");
+
     timelineCards.forEach((card, i) => {
         const timeText = timelineTimes[i];
         const isRight = i % 2 === 1;
         const dir = isRight ? 150 : -150; 
-        const start = i * 1.9; 
+        const start = 2.15 + (i * 1.9); 
 
         tl.fromTo(card, { z: -1500 }, { z: 0, duration: 3, ease: "none" }, start)
           .fromTo(card, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, start)
