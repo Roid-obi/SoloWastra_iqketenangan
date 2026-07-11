@@ -9,6 +9,10 @@ import Introduction from "../components/Introduction.astro";
 import WhySolo from "../components/WhySolo.astro";
 import Gallery from "../components/Gallery.astro";
 import BatikModal from "../components/BatikModal.astro";
+import MakingProcess from "../components/MakingProcess.astro";
+import HistoricalTimeline from "../components/HistoricalTimeline.astro";
+import ModernLife from "../components/ModernLife.astro";
+import Dummy from "../components/Dummy.astro";
 ---
 
 <Layout>
@@ -18,7 +22,7 @@ import BatikModal from "../components/BatikModal.astro";
 
 		<!-- Scrollytelling Stacking Section -->
 		<div id="story-wrapper" class="relative w-full">
-			
+
 			<!-- Sticky Container for Introduction -->
 			<div class="relative md:sticky md:top-0 w-full min-h-screen md:h-screen flex flex-col justify-center overflow-hidden z-10" id="intro-container">
 				<Introduction />
@@ -33,7 +37,7 @@ import BatikModal from "../components/BatikModal.astro";
 					<WhySolo />
 				</div>
 			</div>
-			
+
 			<!-- Final Spacer -->
 			<div class="hidden md:block h-screen w-full"></div>
 
@@ -42,6 +46,10 @@ import BatikModal from "../components/BatikModal.astro";
 		<!-- Gallery Section -->
 		<Gallery />
 
+		<MakingProcess />
+        <HistoricalTimeline />
+        <ModernLife />
+
 		<!-- Preserving Heritage / SDG 11 Impact -->
 		<PreservingHeritage />
 
@@ -49,7 +57,7 @@ import BatikModal from "../components/BatikModal.astro";
 		<ClosingCta />
 
 	</main>
-	
+
 	<!-- Footer -->
 	<Footer />
 
@@ -63,7 +71,7 @@ import BatikModal from "../components/BatikModal.astro";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 	initSmoothScroll();
-	
+
 	// Register ScrollTrigger
 	gsap.registerPlugin(ScrollTrigger);
 

@@ -1,0 +1,112 @@
+---
+import TimelineCard from "./TimelineCard.astro";
+import history1 from "../assets/history/history1.webp";
+import history2 from "../assets/history/history2.webp";
+import history3 from "../assets/history/history3.webp";
+import history4 from "../assets/history/history4.webp";
+
+const history1Image = history1.src;
+const history2Image = history2.src;
+const history3Image = history3.src;
+const history4Image = history4.src;
+
+const timelineData = [
+  {
+    image: history1Image,
+    title: "Era Mataram Islam",
+    description: "Tradisi membatik mulai berkembang pesat di lingkungan Keraton, motifnya masih eksklusif untuk raja dan kaum bangsawan.",
+    time: "Abad ke-17"
+  },
+  {
+    image: history2Image,
+    title: "Perjanjian Giyanti",
+    description: "Mataram terbelah. Keraton Surakarta (Solo) mengembangkan gaya batiknya sendiri dengan ciri khas warna sogan (cokelat bumi) yang elegan.",
+    time: "1755"
+  },
+  {
+    image: history3Image,
+    title: "Era Saudagar",
+    description: "Kampung Batik Laweyan menjadi pusat kebangkitan industri Batik Solo, memperluas jangkauan batik dari keraton ke masyarakat umum.",
+    time: "Awal Abad ke-20"
+  },
+  {
+    image: history4Image,
+    title: "Pengakuan Dunia",
+    description: "UNESCO secara resmi menetapkan Batik Indonesia (dengan Batik Solo sebagai salah satu akar terkuatnya) sebagai Warisan Kemanusiaan untuk Budaya Lisan dan Nonbendawi.",
+    time: "2009"
+  }
+];
+---
+
+<section>
+    <div id="timeline-container" class="min-h-screen relative bg-[url('src/assets/timeline.webp')] bg-cover bg-center">
+        <div class="absolute inset-0 bg-black/80 flex items-center justify-center perspective-distant">
+            <div id="timeline-header" class="flex flex-col justify-center items-center min-h-screen m-auto text-center perspective-normal">
+                <h2 class="opacity-0 antialiased md:subpixel-antialiased font-heading text-5xl sm:text-7xl lg:text-8xl text-neutral-light tracking-tight leading-[1.1]" style="z-index: 2;">Melintasi L<span class="text-accent">o</span>rong Waktu</h2>
+                <p class="opacity-0 antialiased md:subpixel-antialiased font-body text-base sm:text-lg mt-6 mx-auto text-neutral-light/50 leading-relaxed" style="z-index: 1;">
+                    Jejak langkah Batik Solo dari tembok istana hingga panggung dunia.
+                </p>
+            </div>
+            {timelineData.map((event, index) => (
+            <div id={`timeline-card-${index}`} class=`absolute top-15 ${index % 2 === 1 ? "right-50" : "left-50"}` style={`z-index: ${timelineData.length - index};`}>
+                <TimelineCard
+                    image={event.image}
+                    title={event.title}
+                    description={event.description}
+                    right={index % 2 === 1}
+                />
+            </div>
+            <div class="absolute bottom-10 left-0 w-full flex justify-center items-center">
+                <p id={`timeline-time-${index}`} class="text-gray-400 text-xl opacity-0">{event.time}</p>
+            </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const timelineContainer = document.getElementById("timeline-container") as HTMLElement;
+    const timelineCards = timelineContainer.querySelectorAll("[id^='timeline-card-']") as NodeListOf<HTMLElement>;
+    const timelineTimes = timelineContainer.querySelectorAll("[id^='timeline-time-']") as NodeListOf<HTMLElement>;
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: timelineContainer,
+            start: "top top",
+            end: "+=900%",
+            scrub: 1,
+            pin: true,
+        },
+    });
+
+    tl.fromTo("#timeline-header > *", { z: -100 }, { z: 0, opacity: 1, duration: 0.5, ease: "power2.out", stagger: {each: 0.1, from: "start", ease: "easeOut"} })
+      .to("#timeline-header > *", { z: 1000, y: 30, duration: 2, ease: "power2.in", stagger: {each: 0.1, from: "start", ease: "easeIn"} }, "+=1");
+
+    timelineCards.forEach((card, i) => {
+        const timeText = timelineTimes[i];
+        const isRight = i % 2 === 1;
+        const dir = isRight ? 150 : -150; 
+        const start = 2.15 + (i * 1.9); 
+
+        tl.fromTo(card, { z: -1500 }, { z: 0, duration: 3, ease: "none" }, start)
+          .fromTo(card, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, start)
+          .to(card, { z: 1000, x: dir, duration: 1, ease: "power1.in" }, start + 3)
+
+        if (timeText) {
+            tl.fromTo(timeText, 
+                { opacity: 0, y: 20 }, 
+                { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 
+                start + 2.0
+            )
+            .to(timeText, 
+                { opacity: 0, y: -20, duration: 0.5, ease: "power2.in" }, 
+                start + 3.0
+            );
+        }
+    });
+</script>
