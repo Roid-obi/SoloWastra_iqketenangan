@@ -1,0 +1,163 @@
+---
+import ProcessCard from "../components/ProcessCard.astro";
+import process1 from "../assets/process/process1.webp";
+import process2 from "../assets/process/process2.webp";
+import process3 from "../assets/process/process3.webp";
+import process4 from "../assets/process/process4.webp";
+import process5 from "../assets/process/process5.webp";
+
+const process1Image = process1.src;
+const process2Image = process2.src;
+const process3Image = process3.src;
+const process4Image = process4.src;
+const process5Image = process5.src;
+
+const processes = [
+  {
+    image: process1Image,
+    title: "Nyungging",
+    description:
+      "(Menggambar Pola). Seniman membuat sketsa motif di atas secarik kertas sebelum dipindahkan ke kain mori.",
+  },
+  {
+    image: process2Image,
+    title: "Nglowong",
+    description:
+      "(Menorehkan Malam). Menempelkan malam (lilin) panas menggunakan canting untuk mengikuti garis pola utama.",
+  },
+  {
+    image: process3Image,
+    title: "Nembok",
+    description:
+      "(Menutup Kain). Menutup bagian kain tertentu dengan malam agar tidak terkena warna saat proses pencelupan.",
+  },
+  {
+    image: process4Image,
+    title: "Medel",
+    description:
+      "(Pewarnaan). Menyelupkan kain ke dalam pewarna alami. Proses ini bisa diulang berkali-kali untuk warna yang pekat.",
+  },
+  {
+    image: process5Image,
+    title: "Nglorod",
+    description:
+      "(Peluruhan). Merebus kain dalam air mendidih untuk meluruhkan malam, memunculkan motif dan warna yang sesungguhnya.",
+  },
+];
+---
+
+<section
+  id="mp-wrap"
+  class="relative min-h-dvh overflow-hidden bg-neutral-dark"
+>
+  <div
+    id="mp-track"
+    class="flex h-dvh items-center will-change-transform"
+  >
+    <!-- Intro panel -->
+    <div class="mp-panel w-screen h-full shrink-0 flex flex-col justify-center items-center text-center px-6">
+      <div id="mp-intro-content" class="max-w-3xl">
+        <p class="font-mono text-accent/50 text-xs tracking-[0.3em] uppercase mb-6">
+          Tradisi & Proses
+        </p>
+        <h2 class="font-heading text-5xl sm:text-7xl lg:text-8xl text-neutral-light tracking-tight leading-[1.1]">
+          Di Balik Sebuah<br/>
+          <span class="text-accent">Mahakarya</span>
+        </h2>
+        <p class="font-body text-base sm:text-lg mt-6 mx-auto text-neutral-light/50 leading-relaxed">
+          Proses panjang nan magis dalam menciptakan selembar Batik Solo Tulis
+        </p>
+      </div>
+    </div>
+
+    <!-- Process steps -->
+    {processes.map((p, i) => (
+      <ProcessCard
+        image={p.image}
+        title={p.title}
+        description={p.description}
+        index={i}
+      />
+    ))}
+  </div>
+
+  <!-- Step progress dots -->
+  <div
+    id="mp-dots"
+    class="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 pointer-events-none"
+  >
+    {processes.map((_) => (
+      <div
+        class="mp-step-dot h-1.5 rounded-full transition-all duration-500 ease-out"
+      />
+    ))}
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const wrap = document.getElementById("mp-wrap")!;
+  const track = document.getElementById("mp-track")!;
+  const panels = gsap.utils.toArray<HTMLElement>(".mp-panel");
+  const stepDots = gsap.utils.toArray<HTMLElement>(".mp-step-dot");
+
+  const reduce = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (reduce) {
+    wrap.style.overflow = "visible";
+    wrap.style.minHeight = "auto";
+    track.style.flexDirection = "column";
+    track.style.height = "auto";
+    track.style.alignItems = "stretch";
+    panels.forEach((p) => {
+      const el = p as HTMLElement;
+      el.style.height = "100dvh";
+      el.style.width = "100%";
+    });
+  } else {
+    const distance = (track.scrollWidth - window.innerWidth) * 2;
+
+    gsap.set("#mp-dots", { opacity: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: wrap,
+        start: "top top",
+        end: () => `+=${distance}`,
+        pin: true,
+        scrub: true,
+        invalidateOnRefresh: true,
+        onUpdate: () => {
+          const x = gsap.getProperty(track, "x") as number;
+          const absX = Math.abs(x);
+          const vw = window.innerWidth;
+          const currentPanel = Math.floor(absX / vw + 0.5);
+          stepDots.forEach((d, i) => {
+            const el = d as HTMLElement;
+            const isActive = currentPanel >= i + 1;
+            el.style.width = isActive ? "32px" : "6px";
+            el.style.backgroundColor = isActive
+              ? "var(--color-accent)"
+              : "rgba(253, 251, 247, 0.15)";
+          });
+        },
+      },
+    });
+
+    tl.fromTo("#mp-intro-content > *", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.2, stagger: {each: 0.05, from: "start", ease: "easeOut"} })
+      .to("#mp-dots", { opacity: 1, duration: 0.1 })
+      .to(track, {
+        x: -(track.scrollWidth - window.innerWidth),
+        ease: "none",
+        duration: 0.91,
+      });
+
+    ScrollTrigger.refresh();
+  }
+</script>
