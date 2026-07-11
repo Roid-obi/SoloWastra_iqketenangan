@@ -150,12 +150,12 @@ const processes = [
       },
     });
 
-    tl.fromTo("#mp-intro-content > *", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.2, stagger: {each: 0.05, from: "start", ease: "easeOut"} })
-      .to("#mp-dots", { opacity: 1, duration: 0.1 })
+    tl.fromTo("#mp-intro-content > *", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.03, stagger: {each: 0.01, from: "start", ease: "easeOut"} })
+      .to("#mp-dots", { opacity: 1, duration: 0.01 })
       .to(track, {
         x: -(track.scrollWidth - window.innerWidth),
         ease: "none",
-        duration: 0.91,
+        duration: 0.96,
       });
 
     ScrollTrigger.refresh();
