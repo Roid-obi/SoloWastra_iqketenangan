@@ -3,70 +3,74 @@ import "../styles/global.css";
 
 interface Props {
 	title?: string;
+	description?: string;
 }
 
-const { title = "SoloWastra | Eksplorasi Warisan Mahakarya Batik Solo" } =
-	Astro.props;
+const {
+	title = "SoloWastra: Exploring the Legacy of Solo Batik",
+	description = "Menjembatani mahakarya masa lalu dengan generasi masa kini. Jelajahi sejarah, filosofi, dan keindahan Batik Solo melalui pengalaman digital modern.",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		
-		<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#1c0a00" />
+
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+			href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap"
 			rel="stylesheet"
 		/>
+
+		<title>{title}</title>
 	</head>
-	<body class="bg-[var(--color-neutral-dark)] text-[var(--color-neutral-light)] font-body antialiased overflow-x-hidden selection:bg-[var(--color-accent)] selection:text-white">
+	<body class="bg-neutral-light font-body text-neutral-dark antialiased">
 		<slot />
-
-		<script>
-			import Lenis from "lenis";
-			import gsap from "gsap";
-			import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-			gsap.registerPlugin(ScrollTrigger);
-
-			// Initialize Lenis for smooth scrolling
-			const lenis = new Lenis({
-				autoRaf: true,
-			});
-
-			// Sync GSAP ScrollTrigger with Lenis
-			lenis.on("scroll", ScrollTrigger.update);
-
-			gsap.ticker.add((time) => {
-				lenis.raf(time * 1000);
-			});
-
-			gsap.ticker.lagSmoothing(0);
-		</script>
 	</body>
 </html>
 
 <style is:global>
-	/* Batik Motif Truntum Pattern Background (Global, fixed) */
-	body::before {
-		content: "";
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		z-index: -1;
-		opacity: 0.12;
-		background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23cc9544' fill-opacity='1'%3E%3Ccircle cx='40' cy='40' r='2.5'/%3E%3Ccircle cx='40' cy='30' r='1.5'/%3E%3Ccircle cx='40' cy='50' r='1.5'/%3E%3Ccircle cx='30' cy='40' r='1.5'/%3E%3Ccircle cx='50' cy='40' r='1.5'/%3E%3Ccircle cx='33' cy='33' r='1'/%3E%3Ccircle cx='47' cy='33' r='1'/%3E%3Ccircle cx='33' cy='47' r='1'/%3E%3Ccircle cx='47' cy='47' r='1'/%3E%3C/g%3E%3C/svg%3E");
-		background-size: 80px 80px;
-		pointer-events: none;
+	html {
+		scroll-behavior: auto;
+	}
+
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		overflow-x: hidden;
+	}
+
+	::selection {
+		background-color: var(--color-accent);
+		color: var(--color-neutral-dark);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 3px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
 	}
 </style>

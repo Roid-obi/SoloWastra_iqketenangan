@@ -1,0 +1,134 @@
+---
+type Variant =
+	| "parang"
+	| "kawung"
+	| "ceplok"
+	| "truntum"
+	| "sawat"
+	| "semen"
+	| "lattice";
+
+interface Props {
+	variant: Variant;
+	class?: string;
+	stroke?: string;
+	fill?: string;
+}
+
+const {
+	variant,
+	class: className = "",
+	stroke = "currentColor",
+	fill = "none",
+} = Astro.props;
+---
+
+<svg
+	class={className}
+	viewBox="0 0 200 200"
+	xmlns="http://www.w3.org/2000/svg"
+	aria-hidden="true"
+	focusable="false"
+>
+	{
+		variant === "parang" && (
+			<g stroke={stroke} fill={fill} stroke-width="1.4" opacity="0.9">
+				{Array.from({ length: 6 }).map((_, i) => (
+					<path
+						d={`M -20 ${20 + i * 34} Q 40 ${-10 + i * 34}, 100 ${20 + i * 34} T 220 ${20 + i * 34}`}
+					/>
+				))}
+			</g>
+		)
+	}
+	{
+		variant === "kawung" && (
+			<g stroke={stroke} fill={fill} stroke-width="1.4" opacity="0.9">
+				{[
+					[50, 50],
+					[150, 50],
+					[50, 150],
+					[150, 150],
+					[100, 100],
+				].map(([cx, cy]) => (
+					<g transform={`translate(${cx} ${cy})`}>
+						<ellipse rx="22" ry="14" />
+						<ellipse rx="22" ry="14" transform="rotate(90)" />
+						<circle r="4" />
+					</g>
+				))}
+			</g>
+		)
+	}
+	{
+		variant === "ceplok" && (
+			<g stroke={stroke} fill={fill} stroke-width="1.4" opacity="0.9">
+				{[
+					[40, 40],
+					[100, 40],
+					[160, 40],
+					[40, 100],
+					[100, 100],
+					[160, 100],
+					[40, 160],
+					[100, 160],
+					[160, 160],
+				].map(([cx, cy]) => (
+					<g transform={`translate(${cx} ${cy})`}>
+						<rect x="-16" y="-16" width="32" height="32" transform="rotate(45)" />
+						<circle r="8" />
+					</g>
+				))}
+			</g>
+		)
+	}
+	{
+		variant === "truntum" && (
+			<g stroke={stroke} fill={fill} stroke-width="1.2" opacity="0.9">
+				{Array.from({ length: 24 }).map((_, i) => {
+					const cx = (i * 47) % 200;
+					const cy = ((i * 83) % 200) + (i % 2) * 10;
+					return (
+						<path
+							transform={`translate(${cx} ${cy}) scale(0.55)`}
+							d="M0 -14 L4 -4 14 -4 6 3 9 14 0 7 -9 14 -6 3 -14 -4 -4 -4 Z"
+						/>
+					);
+				})}
+			</g>
+		)
+	}
+	{
+		variant === "sawat" && (
+			<g stroke={stroke} fill={fill} stroke-width="1.4" opacity="0.9">
+				<path d="M100 60 C60 20, 10 40, 10 90 C40 80, 70 90, 100 120" />
+				<path d="M100 60 C140 20, 190 40, 190 90 C160 80, 130 90, 100 120" />
+				<circle cx="100" cy="55" r="10" />
+			</g>
+		)
+	}
+	{
+		variant === "semen" && (
+			<g stroke={stroke} fill={fill} stroke-width="1.3" opacity="0.9">
+				{Array.from({ length: 4 }).map((_, i) => (
+					<path
+						transform={`translate(${20 + i * 45} 20)`}
+						d="M10 160 C-10 120, 30 100, 10 60 C-6 30, 24 10, 10 -10"
+					/>
+				))}
+			</g>
+		)
+	}
+	{
+		variant === "lattice" && (
+			<g stroke={stroke} fill={fill} stroke-width="1" opacity="0.9">
+				{Array.from({ length: 5 }).map((_, i) => (
+					<line x1={i * 45} y1="0" x2={i * 45} y2="200" />
+				))}
+				{Array.from({ length: 5 }).map((_, i) => (
+					<line x1="0" y1={i * 45} x2="200" y2={i * 45} />
+				))}
+			</g>
+		)
+	}
+</svg>
