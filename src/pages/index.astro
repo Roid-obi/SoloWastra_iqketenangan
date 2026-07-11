@@ -1,5 +1,14 @@
 ---
+import ClosingCta from "../components/ClosingCta.astro";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import PreservingHeritage from "../components/PreservingHeritage.astro";
 import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Introduction from "../components/Introduction.astro";
+import WhySolo from "../components/WhySolo.astro";
+import Gallery from "../components/Gallery.astro";
+import BatikModal from "../components/BatikModal.astro";
 import MakingProcess from "../components/MakingProcess.astro";
 import HistoricalTimeline from "../components/HistoricalTimeline.astro";
 import ModernLife from "../components/ModernLife.astro";
@@ -7,7 +16,45 @@ import Dummy from "../components/Dummy.astro";
 ---
 
 <Layout>
+	<main class="relative w-full">
+		<Hero />
+
+		<!-- Scrollytelling Stacking Section -->
+		<div id="story-wrapper" class="relative w-full">
+
+			<!-- Sticky Container for Introduction -->
+			<div class="sticky top-0 w-full h-screen flex flex-col justify-center overflow-hidden z-10" id="intro-container">
+				<Introduction />
+			</div>
+
+			<!-- Spacer to create scroll distance for pinning effect -->
+			<div class="h-screen w-full"></div>
+
+			<!-- Sticky Container for WhySolo -->
+			<div class="sticky top-0 w-full h-screen flex flex-col justify-center overflow-hidden z-20 pointer-events-none" id="why-container">
+				<div class="pointer-events-auto w-full h-full">
+					<WhySolo />
+				</div>
+			</div>
+
+			<!-- Final Spacer -->
+			<div class="h-screen w-full"></div>
+
+		</div>
+
+		<!-- Gallery Section -->
+		<Gallery />
+
+	</main>
+
+	<!-- Modals -->
+	<BatikModal />
 	<MakingProcess />
 	<HistoricalTimeline />
-	<ModernLife />	 
+	<ModernLife />
 </Layout>
+
+<script>
+	import { initSmoothScroll } from "../lib/smooth-scroll";
+	initSmoothScroll();
+</script>

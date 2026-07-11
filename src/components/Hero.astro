@@ -1,0 +1,174 @@
+---
+import { Image } from "astro:assets";
+import batikSogan1 from "../assets/images/batik_sogan_1.png";
+import batikSogan2 from "../assets/images/batik_sogan_2.png";
+---
+
+<section
+	id="hero"
+	class="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden"
+>
+	<!-- Floating Background Cards -->
+	<div
+		class="hero-parallax-container absolute inset-0 w-full h-full pointer-events-none"
+	>
+		<!-- Card 1 (Top Left) -->
+		<div
+			class="parallax-item absolute top-[15%] left-[10%] w-48 h-64 md:w-64 md:h-80 rounded-2xl overflow-hidden shadow-2xl blur-[2px] opacity-60 transform -rotate-6"
+			data-speed="0.05"
+		>
+			<Image
+				src={batikSogan1}
+				alt="Batik Sogan 1"
+				class="w-full h-full object-cover"
+				format="avif"
+			/>
+		</div>
+
+		<!-- Card 2 (Bottom Right) -->
+		<div
+			class="parallax-item absolute bottom-[15%] right-[10%] w-56 h-72 md:w-72 md:h-96 rounded-2xl overflow-hidden shadow-2xl blur-[3px] opacity-50 transform rotate-12"
+			data-speed="-0.04"
+		>
+			<Image
+				src={batikSogan2}
+				alt="Batik Sogan 2"
+				class="w-full h-full object-cover"
+				format="avif"
+			/>
+		</div>
+
+		<!-- Card 3 (Top Right) -->
+		<div
+			class="parallax-item absolute top-[20%] right-[15%] w-40 h-56 md:w-48 md:h-64 rounded-2xl overflow-hidden shadow-2xl blur-[1.5px] opacity-70 transform rotate-3"
+			data-speed="0.03"
+		>
+			<Image
+				src={batikSogan1}
+				alt="Batik Sogan 3"
+				class="w-full h-full object-cover"
+				format="avif"
+			/>
+		</div>
+
+		<!-- Card 4 (Bottom Left) -->
+		<div
+			class="parallax-item absolute bottom-[25%] left-[15%] w-44 h-60 md:w-56 md:h-72 rounded-2xl overflow-hidden shadow-2xl blur-[4px] opacity-40 transform -rotate-12"
+			data-speed="-0.06"
+		>
+			<Image
+				src={batikSogan2}
+				alt="Batik Sogan 4"
+				class="w-full h-full object-cover"
+				format="avif"
+			/>
+		</div>
+	</div>
+
+	<!-- Main Content -->
+	<div class="relative z-10 text-center max-w-4xl px-6 flex flex-col items-center">
+		<h1
+			class="hero-title text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-[var(--color-accent)] leading-tight mb-6"
+		>
+			SoloWastra: Eksplorasi Warisan Mahakarya Batik Solo
+		</h1>
+		<p
+			class="hero-subtitle text-lg md:text-xl text-[var(--color-neutral-light)] mb-10 max-w-2xl font-body leading-relaxed"
+		>
+			Menjembatani mahakarya masa lalu dengan generasi masa kini. Temukan cerita,
+			filosofi, dan keindahan di balik setiap helai kain kebanggaan Nusantara.
+		</p>
+		<div class="hero-buttons flex flex-col sm:flex-row gap-4 mb-16">
+			<a
+				href="#introduction"
+				class="px-8 py-4 bg-[var(--color-accent)] text-[var(--color-neutral-dark)] font-bold rounded-full transition-transform hover:scale-105 shadow-lg"
+			>
+				Mulai Eksplorasi
+			</a>
+			<a
+				href="#why-solo"
+				class="px-8 py-4 bg-transparent border border-[var(--color-accent)] text-[var(--color-accent)] font-bold rounded-full transition-colors hover:bg-[var(--color-accent)] hover:text-[var(--color-neutral-dark)] shadow-lg"
+			>
+				Kenali SoloWastra
+			</a>
+		</div>
+	</div>
+
+	<!-- Scroll Indicator -->
+	<div class="hero-scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-70">
+		<span class="text-sm uppercase tracking-widest mb-2">Scroll to Explore</span>
+		<svg
+			class="w-6 h-6 animate-bounce text-[var(--color-accent)]"
+			fill="none"
+			stroke="currentColor"
+			viewBox="0 0 24 24"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				d="M19 14l-7 7m0 0l-7-7m7 7V3"
+			></path>
+		</svg>
+	</div>
+</section>
+
+<script>
+	import gsap from "gsap";
+
+	// Mouse Parallax Effect
+	document.addEventListener("DOMContentLoaded", () => {
+		const parallaxItems = document.querySelectorAll(".parallax-item");
+		const container = document.getElementById("hero");
+
+		if (container) {
+			container.addEventListener("mousemove", (e) => {
+				const mouseX = e.clientX;
+				const mouseY = e.clientY;
+				const centerX = window.innerWidth / 2;
+				const centerY = window.innerHeight / 2;
+
+				parallaxItems.forEach((item) => {
+					const speed = parseFloat(item.getAttribute("data-speed") || "0");
+					const x = (mouseX - centerX) * speed;
+					const y = (mouseY - centerY) * speed;
+
+					gsap.to(item, {
+						x: x,
+						y: y,
+						duration: 0.5,
+						ease: "power2.out",
+					});
+				});
+			});
+		}
+
+		// Initial Hero animations (Fade in & Slide up)
+		const tl = gsap.timeline();
+		tl.from(".hero-title", {
+			y: 50,
+			opacity: 0,
+			duration: 1,
+			ease: "power3.out",
+			delay: 0.2
+		})
+		.from(".hero-subtitle", {
+			y: 30,
+			opacity: 0,
+			duration: 0.8,
+			ease: "power3.out",
+		}, "-=0.6")
+		.from(".hero-buttons a", {
+			y: 20,
+			opacity: 0,
+			duration: 0.6,
+			stagger: 0.2,
+			ease: "power3.out",
+		}, "-=0.4")
+		.from(".hero-scroll-indicator", {
+			opacity: 0,
+			duration: 1,
+		}, "-=0.2");
+	});
+</script>

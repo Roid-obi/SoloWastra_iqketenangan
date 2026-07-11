@@ -1,0 +1,52 @@
+---
+// WhySolo.astro
+---
+
+<section id="why-solo" class="story-section w-full min-h-screen flex items-center justify-center p-6 relative">
+	<!-- Kertas Surat Card 2 -->
+	<div class="why-card relative bg-[#eedfcc] text-[#2c1808] w-full max-w-3xl p-10 md:p-16 shadow-2xl origin-bottom border border-[#d4c3a3] rotate-2">
+		<!-- Texture overlay -->
+		<div class="absolute inset-0 opacity-60 pointer-events-none mix-blend-multiply" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
+		
+		<div class="relative z-10 text-center why-content mix-blend-multiply">
+			<h2 class="text-3xl md:text-5xl font-heading font-bold text-[#603601] mb-4">
+				Mengapa Harus Batik Solo?
+			</h2>
+			<h3 class="text-xl md:text-2xl font-body italic text-[#8a5a2b] mb-12">
+				Lebih dari sekadar selembar kain, Batik Solo adalah kanvas tempat doa dan filosofi kehidupan dituliskan.
+			</h3>
+			
+			<div class="space-y-8 text-left max-w-3xl mx-auto">
+				<div class="flex flex-col md:flex-row gap-4 items-start">
+					<div class="bg-[#cc9544] text-[#1c0a00] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl shrink-0">1</div>
+					<div>
+						<h4 class="text-xl font-heading font-bold text-[#603601] mb-2">Warna Bumi yang Autentik (Sogan)</h4>
+						<p class="font-body text-[#361500] leading-relaxed">Karakteristik utama Batik Solo adalah warna Sogan (cokelat gelap kekuningan) yang melambangkan kerendahan hati, kehangatan, dan kedekatan manusia dengan alam.</p>
+					</div>
+				</div>
+				
+				<div class="flex flex-col md:flex-row gap-4 items-start">
+					<div class="bg-[#cc9544] text-[#1c0a00] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl shrink-0">2</div>
+					<div>
+						<h4 class="text-xl font-heading font-bold text-[#603601] mb-2">Filosofi Keraton yang Mendalam</h4>
+						<p class="font-body text-[#361500] leading-relaxed">Motif Batik Solo tidak digambar secara acak. Setiap garis dan lengkungannya terikat dengan pakem Keraton Surakarta, membawa pesan tentang kebijaksanaan, ketertiban, dan keseimbangan hidup.</p>
+					</div>
+				</div>
+				
+				<div class="flex flex-col md:flex-row gap-4 items-start">
+					<div class="bg-[#cc9544] text-[#1c0a00] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl shrink-0">3</div>
+					<div>
+						<h4 class="text-xl font-heading font-bold text-[#603601] mb-2">Karya Seni Tingkat Tinggi</h4>
+						<p class="font-body text-[#361500] leading-relaxed">Setiap kain menceritakan ketekunan para pengrajin lokal yang membatik menggunakan canting dan malam, menjadikannya mahakarya seni yang diakui dunia.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.why-card {
+		box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5), inset 0 0 60px rgba(138, 90, 43, 0.15);
+	}
+</style>

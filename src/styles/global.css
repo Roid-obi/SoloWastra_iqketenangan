@@ -1,25 +1,64 @@
 @import "tailwindcss";
 
 :root {
-  /* Colors */
-  --color-primary: #603601;
-  --color-secondary: #361500;
-  --color-accent: #cc9544;
-  --color-neutral-dark: #1c0a00;
-  --color-neutral-light: #fdfbf7;
+	/* Colors */
+	--color-primary: #603601;
+	--color-secondary: #361500;
+	--color-accent: #cc9544;
+	--color-neutral-dark: #1c0a00;
+	--color-neutral-light: #fdfbf7;
 
-  /* Fonts */
-  --font-heading: "DM Serif Display", serif;
-  --font-body: "DM Sans", sans-serif;
+	/* Fonts */
+	--font-heading: "Playfair Display", serif;
+	--font-body: "Plus Jakarta Sans", sans-serif
 }
 
 @theme {
-  --color-primary: var(--color-primary);
-  --color-secondary: var(--color-secondary);
-  --color-accent: var(--color-accent);
-  --color-neutral-dark: var(--color-neutral-dark);
-  --color-neutral-light: var(--color-neutral-light);
+	--color-primary: var(--color-primary);
+	--color-secondary: var(--color-secondary);
+	--color-accent: var(--color-accent);
+	--color-neutral-dark: var(--color-neutral-dark);
+	--color-neutral-light: var(--color-neutral-light);
 
-  --font-heading: var(--font-heading);
-  --font-body: var(--font-body);
+	--font-heading: var(--font-heading);
+	--font-body: var(--font-body);
+
+	--shadow-soft: 0 20px 60px -20px rgba(28, 10, 0, 0.35);
+	--shadow-glow: 0 0 40px -8px rgba(204, 149, 68, 0.45);
+
+	--container-section: 1240px;
+}
+
+@layer base {
+	h1,
+	h2,
+	h3 {
+		font-family: var(--font-heading);
+		letter-spacing: -0.01em;
+	}
+}
+
+@layer utilities {
+	.section-container {
+		width: 100%;
+		max-width: var(--container-section);
+		margin-inline: auto;
+		padding-inline: 1.5rem;
+	}
+
+	@media (min-width: 768px) {
+		.section-container {
+			padding-inline: 3rem;
+		}
+	}
+
+	.batik-texture-bg {
+		background-image: url("/batik-texture.png");
+		background-repeat: repeat;
+		background-size: 480px;
+	}
+
+	.text-balance {
+		text-wrap: balance;
+	}
 }
