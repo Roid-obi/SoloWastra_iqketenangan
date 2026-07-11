@@ -1,22 +1,37 @@
 ---
-import stepImage from "../assets/image3.jpg";
+import modern1 from "../assets/modern/modern1.webp";
+import modern2 from "../assets/modern/modern2.webp";
+import fashion1 from "../assets/modern/fashion/fashion1.webp";
+import fashion2 from "../assets/modern/fashion/fashion2.webp";
+import fashion3 from "../assets/modern/fashion/fashion3.webp";
+import interior1 from "../assets/modern/interior/interior1.webp";
+import interior2 from "../assets/modern/interior/interior2.webp";
+import interior3 from "../assets/modern/interior/interior3.webp";
+import accessories1 from "../assets/modern/acc/acc1.webp";
+import accessories2 from "../assets/modern/acc/acc2.webp";
+import accessories3 from "../assets/modern/acc/acc3.webp";
 
-const batikImage = stepImage.src;
+const modern1Image = modern1.src;
+const modern2Image = modern2.src;
+const fashionImage = [fashion1.src, fashion2.src, fashion3.src];
+const interiorImage = [interior1.src, interior2.src, interior3.src];
+const accessoriesImage = [accessories1.src, accessories2.src, accessories3.src];
+
 const modernLifeData = [
   {
-    image: [batikImage, batikImage, batikImage],
+    image: fashionImage,
     title: "Everyday Fashion",
     description:
       "Tidak lagi sebatas pakaian adat, Batik Solo kini bertransformasi menjadi casual wear, gaun haute couture, hingga jaket streetwear yang trendi.",
   },
   {
-    image: [batikImage, batikImage, batikImage],
+    image: interiorImage,
     title: "Modern Interior",
     description:
       "Motif klasik Solo kini menghiasi ruang tamu modern—mulai dari sarung bantal, taplak meja, hingga hiasan dinding yang artsy.",
   },
   {
-    image: [batikImage, batikImage, batikImage],
+    image: accessoriesImage,
     title: "Creative Accessories",
     description:
       "Sentuhan tradisi pada detail terkecil. Batik hadir dalam bentuk tas kanvas, scrunchie, hingga pelapis casing gawai.",
@@ -37,11 +52,11 @@ const modernLifeData = [
             </div>
 
             <div class="absolute top-[45vh] left-[80vw] -translate-x-1/2 -translate-y-1/2 w-[30vw] md:w-[15vw] rotate-[-13deg] shadow-md p-2 bg-white">
-                <img src={modernLifeData[1].image[0]} class="w-full aspect-3/4 object-cover" alt="Batik pattern" />
+                <img src={modern1Image} class="w-full aspect-3/4 object-cover" alt="Batik pattern" />
             </div>
 
             <div class="absolute top-[30vh] left-[150vw] -translate-x-1/2 -translate-y-1/2 w-[25vw] md:w-[30vw] -rotate-3 shadow-md p-2 bg-white">
-                <img src={modernLifeData[0].image[0]} class="w-full aspect-video object-cover" alt="Batik pattern" />
+                <img src={modern2Image} class="w-full aspect-video object-cover" alt="Batik pattern" />
             </div>
 
             <!-- Kanan Atas -->
@@ -52,11 +67,11 @@ const modernLifeData = [
             </div>
 
             <div class="absolute top-[30vh] left-[205vw] -translate-x-1/2 -translate-y-1/2 w-[35vw] md:w-[15vw] -rotate-1 shadow-lg p-2 bg-white">
-                <img src={modernLifeData[2].image[1]} class="w-full aspect-square object-cover" alt="Batik pattern" />
+                <img src={modernLifeData[0].image[1]} class="w-full aspect-square object-cover" alt="Batik pattern" />
             </div>
             
             <div class="absolute top-[70vh] left-[260vw] -translate-x-1/2 -translate-y-1/2 w-[35vw] md:w-[20vw] rotate-[-5deg] shadow-lg p-2 bg-white">
-                <img src={modernLifeData[2].image[2]} class="w-full aspect-3/4 object-cover" alt="Batik pattern" />
+                <img src={modernLifeData[0].image[2]} class="w-full aspect-3/4 object-cover" alt="Batik pattern" />
             </div>
 
             <!-- Kanan Bawah -->
@@ -67,11 +82,11 @@ const modernLifeData = [
             </div>
 
             <div class="absolute top-[150vh] left-[265vw] -translate-x-1/2 -translate-y-1/2 w-[40vw] md:w-[18vw] rotate-[7deg] shadow-xl p-3 bg-white">
-                <img src={modernLifeData[0].image[1]} class="w-full aspect-square object-cover" alt="Batik modern life" />
+                <img src={modernLifeData[1].image[1]} class="w-full aspect-square object-cover" alt="Batik modern life" />
             </div>
 
             <div class="absolute top-[190vh] left-[195vw] -translate-x-1/2 -translate-y-1/2 w-[40vw] md:w-[18vw] -rotate-2 shadow-xl p-3 bg-white">
-                <img src={modernLifeData[0].image[2]} class="w-full aspect-square object-cover" alt="Batik modern life" />
+                <img src={modernLifeData[1].image[2]} class="w-full aspect-square object-cover" alt="Batik modern life" />
             </div>
 
             <!-- Kiri Bawah -->
@@ -82,11 +97,11 @@ const modernLifeData = [
             </div>
             
             <div class="absolute top-[150vh] left-[40vw] -translate-x-1/2 -translate-y-1/2 w-[30vw] md:w-[15vw] -rotate-6 shadow-lg p-2 bg-white">
-                <img src={modernLifeData[1].image[1]} class="w-full aspect-square object-cover" alt="Batik pattern" />
+                <img src={modernLifeData[2].image[1]} class="w-full aspect-square object-cover" alt="Batik pattern" />
             </div>
 
             <div class="absolute top-[180vh] left-[100vw] -translate-x-1/2 -translate-y-1/2 w-[30vw] md:w-[15vw] rotate-3 shadow-lg p-2 bg-white">
-                <img src={modernLifeData[1].image[2]} class="w-full aspect-square object-cover" alt="Batik pattern" />
+                <img src={modernLifeData[2].image[2]} class="w-full aspect-square object-cover" alt="Batik pattern" />
             </div>
 
             <!-- Tengah -->

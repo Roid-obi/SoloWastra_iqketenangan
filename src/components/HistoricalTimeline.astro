@@ -1,29 +1,36 @@
 ---
 import TimelineCard from "./TimelineCard.astro";
-import stepImage from "../assets/image2.png";
+import history1 from "../assets/history/history1.webp";
+import history2 from "../assets/history/history2.webp";
+import history3 from "../assets/history/history3.webp";
+import history4 from "../assets/history/history4.webp";
 
-const timelineImage = stepImage.src;
+const history1Image = history1.src;
+const history2Image = history2.src;
+const history3Image = history3.src;
+const history4Image = history4.src;
+
 const timelineData = [
   {
-    image: timelineImage,
+    image: history1Image,
     title: "Era Mataram Islam",
     description: "Tradisi membatik mulai berkembang pesat di lingkungan Keraton, motifnya masih eksklusif untuk raja dan kaum bangsawan.",
     time: "Abad ke-17"
   },
   {
-    image: timelineImage,
+    image: history2Image,
     title: "Perjanjian Giyanti",
     description: "Mataram terbelah. Keraton Surakarta (Solo) mengembangkan gaya batiknya sendiri dengan ciri khas warna sogan (cokelat bumi) yang elegan.",
     time: "1755"
   },
   {
-    image: timelineImage,
+    image: history3Image,
     title: "Era Saudagar",
     description: "Kampung Batik Laweyan menjadi pusat kebangkitan industri Batik Solo, memperluas jangkauan batik dari keraton ke masyarakat umum.",
     time: "Awal Abad ke-20"
   },
   {
-    image: timelineImage,
+    image: history4Image,
     title: "Pengakuan Dunia",
     description: "UNESCO secara resmi menetapkan Batik Indonesia (dengan Batik Solo sebagai salah satu akar terkuatnya) sebagai Warisan Kemanusiaan untuk Budaya Lisan dan Nonbendawi.",
     time: "2009"
@@ -32,7 +39,7 @@ const timelineData = [
 ---
 
 <section>
-    <div id="timeline-container" class="min-h-screen relative bg-[url('src/assets/batik-9.jpg')] bg-cover bg-center">
+    <div id="timeline-container" class="min-h-screen relative bg-[url('src/assets/timeline.webp')] bg-cover bg-center">
         <div class="absolute inset-0 bg-black/80 flex items-center justify-center perspective-distant">
             <div id="timeline-header" class="flex flex-col justify-center items-center min-h-screen m-auto text-center perspective-normal">
                 <h2 class="opacity-0 antialiased md:subpixel-antialiased font-heading text-5xl sm:text-7xl lg:text-8xl text-neutral-light tracking-tight leading-[1.1]" style="z-index: 2;">Melintasi L<span class="text-accent">o</span>rong Waktu</h2>
