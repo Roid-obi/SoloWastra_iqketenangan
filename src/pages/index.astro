@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Introduction from "../components/Introduction.astro";
 import WhySolo from "../components/WhySolo.astro";
+import Gallery from "../components/Gallery.astro";
+import BatikModal from "../components/BatikModal.astro";
 ---
 
 <Layout>
@@ -28,10 +30,17 @@ import WhySolo from "../components/WhySolo.astro";
 			</div>
 			
 			<!-- Final Spacer -->
-			<div class="h-[50vh] w-full"></div>
+			<div class="h-screen w-full"></div>
 
 		</div>
+
+		<!-- Gallery Section -->
+		<Gallery />
+
 	</main>
+	
+	<!-- Modals -->
+	<BatikModal />
 </Layout>
 
 <script>
