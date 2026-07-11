@@ -14,16 +14,16 @@ const rotations = ["-2deg", "1.5deg", "-1deg", "2.5deg", "-2.5deg", "1deg", "-1.
 <section id="gallery-section" class="relative w-full py-32 px-6 overflow-visible">
 	
 	<!-- Section Header -->
-	<div class="gallery-header text-center max-w-3xl mx-auto mb-20 opacity-0 translate-y-8">
-		<p class="font-body text-[#cc9544] tracking-[0.25em] uppercase text-sm mb-4">
+	<div class="gallery-header text-center max-w-3xl mx-auto mb-16 md:mb-20 opacity-0 translate-y-8">
+		<p class="font-body text-[#cc9544] tracking-[0.25em] uppercase text-xs sm:text-sm mb-4">
 			Eksplorasi Koleksi
 		</p>
-		<h2 class="font-heading text-5xl md:text-6xl font-bold text-[#fdfbf7] mb-6 leading-tight">
+		<h2 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-[#fdfbf7] mb-6 leading-tight">
 			Eksplorasi Mahakarya<br />
 			<span class="text-[#cc9544]">Wastra</span>
 		</h2>
-		<div class="w-20 h-px bg-[#cc9544] mx-auto mb-6"></div>
-		<p class="font-body text-[#c9b69e] text-lg leading-relaxed">
+		<div class="w-16 sm:w-20 h-px bg-[#cc9544] mx-auto mb-6"></div>
+		<p class="font-body text-[#c9b69e] text-base sm:text-lg leading-relaxed px-4">
 			Delapan mahakarya, delapan cerita. Temukan makna luhur, filosofi, dan doa
 			yang tersembunyi di balik indahnya guratan malam Batik Solo.
 			Klik pada setiap motif untuk menelusuri kisahnya.
@@ -31,7 +31,7 @@ const rotations = ["-2deg", "1.5deg", "-1deg", "2.5deg", "-2.5deg", "1deg", "-1.
 	</div>
 
 	<!-- Cards Grid -->
-	<div class="gallery-grid max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 items-start">
+	<div class="gallery-grid max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 items-start">
 		{
 			batikData.map((item, index) => {
 				const imageSrc = images[`../assets/images/${item.image}`]?.default;
