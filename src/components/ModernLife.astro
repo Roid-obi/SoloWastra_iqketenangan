@@ -1,0 +1,163 @@
+---
+import stepImage from "../assets/image3.jpg";
+
+const batikImage = stepImage.src;
+const modernLifeData = [
+  {
+    image: [batikImage, batikImage, batikImage],
+    title: "Everyday Fashion",
+    description:
+      "Tidak lagi sebatas pakaian adat, Batik Solo kini bertransformasi menjadi casual wear, gaun haute couture, hingga jaket streetwear yang trendi.",
+  },
+  {
+    image: [batikImage, batikImage, batikImage],
+    title: "Modern Interior",
+    description:
+      "Motif klasik Solo kini menghiasi ruang tamu modern—mulai dari sarung bantal, taplak meja, hingga hiasan dinding yang artsy.",
+  },
+  {
+    image: [batikImage, batikImage, batikImage],
+    title: "Creative Accessories",
+    description:
+      "Sentuhan tradisi pada detail terkecil. Batik hadir dalam bentuk tas kanvas, scrunchie, hingga pelapis casing gawai.",
+  },
+];
+---
+
+<section id="modern-life-section" class="relative overflow-hidden w-full h-screen bg-[#F4F1EB] bg-[radial-gradient(#d5cbbd_1px,transparent_1px)] bg-size-[20px_20px]">
+    <div id="moodboard-wrapper" class="absolute inset-0 w-full h-full will-change-transform">
+        <div id="moodboard-canvas" class="absolute top-0 left-0 w-[300vw] h-[300vh] will-change-transform">
+            
+            <!-- Kiri Atas-->
+            <div class="absolute top-[25vh] left-[10vw] max-w-2xl px-4 md:px-0">
+                <h2 class="text-5xl md:text-7xl font-serif mb-6 leading-tight text-[#3A2D23]">Keanggunan yang Tak Lekang oleh Waktu</h2>
+                <p class="text-xl md:text-2xl text-gray-700">
+                    Bagaimana mahakarya masa lalu beradaptasi di tengah gaya hidup modern saat ini.
+                </p>
+            </div>
+
+            <div class="absolute top-[45vh] left-[80vw] -translate-x-1/2 -translate-y-1/2 w-[30vw] md:w-[15vw] rotate-[-13deg] shadow-md p-2 bg-white">
+                <img src={modernLifeData[1].image[0]} class="w-full aspect-3/4 object-cover" alt="Batik pattern" />
+            </div>
+
+            <div class="absolute top-[30vh] left-[150vw] -translate-x-1/2 -translate-y-1/2 w-[25vw] md:w-[30vw] -rotate-3 shadow-md p-2 bg-white">
+                <img src={modernLifeData[0].image[0]} class="w-full aspect-video object-cover" alt="Batik pattern" />
+            </div>
+
+            <!-- Kanan Atas -->
+            <div class="absolute top-[50vh] left-[230vw] -translate-x-1/2 -translate-y-1/2 w-[70vw] md:w-[25vw] rotate-[4deg] shadow-2xl p-4 bg-white moodboard-item">
+                <img src={modernLifeData[0].image[0]} class="w-full aspect-4/5 object-cover mb-4" alt={modernLifeData[0].title} />
+                <h3 class="text-2xl font-serif text-[#3A2D23]">{modernLifeData[0].title}</h3>
+                <p class="text-gray-600 mt-2">{modernLifeData[0].description}</p>
+            </div>
+
+            <div class="absolute top-[30vh] left-[205vw] -translate-x-1/2 -translate-y-1/2 w-[35vw] md:w-[15vw] -rotate-1 shadow-lg p-2 bg-white">
+                <img src={modernLifeData[2].image[1]} class="w-full aspect-square object-cover" alt="Batik pattern" />
+            </div>
+            
+            <div class="absolute top-[70vh] left-[260vw] -translate-x-1/2 -translate-y-1/2 w-[35vw] md:w-[20vw] rotate-[-5deg] shadow-lg p-2 bg-white">
+                <img src={modernLifeData[2].image[2]} class="w-full aspect-3/4 object-cover" alt="Batik pattern" />
+            </div>
+
+            <!-- Kanan Bawah -->
+            <div class="absolute top-[170vh] left-[230vw] -translate-x-1/2 -translate-y-1/2 w-[75vw] md:w-[30vw] -rotate-3 shadow-2xl p-4 bg-white moodboard-item">
+                <img src={modernLifeData[1].image[0]} class="w-full aspect-video object-cover mb-4" alt={modernLifeData[1].title} />
+                <h3 class="text-3xl font-serif text-[#3A2D23]">{modernLifeData[1].title}</h3>
+                <p class="text-gray-600 mt-2">{modernLifeData[1].description}</p>
+            </div>
+
+            <div class="absolute top-[150vh] left-[265vw] -translate-x-1/2 -translate-y-1/2 w-[40vw] md:w-[18vw] rotate-[7deg] shadow-xl p-3 bg-white">
+                <img src={modernLifeData[0].image[1]} class="w-full aspect-square object-cover" alt="Batik modern life" />
+            </div>
+
+            <div class="absolute top-[190vh] left-[195vw] -translate-x-1/2 -translate-y-1/2 w-[40vw] md:w-[18vw] -rotate-2 shadow-xl p-3 bg-white">
+                <img src={modernLifeData[0].image[2]} class="w-full aspect-square object-cover" alt="Batik modern life" />
+            </div>
+
+            <!-- Kiri Bawah -->
+            <div class="absolute top-[170vh] left-[70vw] -translate-x-1/2 -translate-y-1/2 w-[70vw] md:w-[25vw] rotate-[5deg] shadow-xl p-4 bg-white moodboard-item">
+                <img src={modernLifeData[2].image[0]} class="w-full aspect-3/4 object-cover mb-4" alt={modernLifeData[2].title} />
+                <h3 class="text-2xl font-serif text-[#3A2D23]">{modernLifeData[2].title}</h3>
+                <p class="text-gray-600 mt-2">{modernLifeData[2].description}</p>
+            </div>
+            
+            <div class="absolute top-[150vh] left-[40vw] -translate-x-1/2 -translate-y-1/2 w-[30vw] md:w-[15vw] -rotate-6 shadow-lg p-2 bg-white">
+                <img src={modernLifeData[1].image[1]} class="w-full aspect-square object-cover" alt="Batik pattern" />
+            </div>
+
+            <div class="absolute top-[180vh] left-[100vw] -translate-x-1/2 -translate-y-1/2 w-[30vw] md:w-[15vw] rotate-3 shadow-lg p-2 bg-white">
+                <img src={modernLifeData[1].image[2]} class="w-full aspect-square object-cover" alt="Batik pattern" />
+            </div>
+
+            <!-- Tengah -->
+            <div class="absolute top-[110vh] left-[150vw] -translate-x-1/2 -translate-y-1/2 w-[85vw] md:w-[50vw] -rotate-2 text-center">
+                <h2 id="quote" class="text-4xl md:text-7xl font-serif italic text-[#8B5A2B] leading-snug wrap-break-words">
+                    "Batik adalah identitas yang hidup, bukan sekadar kain pajangan."
+                </h2>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+
+    gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
+
+    const wrapper = document.getElementById("moodboard-wrapper");
+    const canvas = document.getElementById("moodboard-canvas");
+    const quote = document.getElementById("quote") as HTMLElement;
+
+    const finalQuoteText = quote.textContent ? quote.textContent.trim() : '"Batik adalah identitas yang hidup, bukan sekadar kain pajangan."';
+    quote.textContent = "";
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#modern-life-section",
+            start: "top top",
+            end: "+=800%", 
+            scrub: 1.5,
+            pin: true,
+        }
+    });
+
+    tl.to({}, { duration: 0.5 })
+
+      // Geser ke Kanan
+      .to(wrapper, { scale: 0.65, duration: 1, ease: "power1.inOut" }, "step1")
+      .to(canvas, { x: "-180vw", y: "0vh", duration: 1.5, ease: "power1.inOut" }, "step1")
+      .to(wrapper, { scale: 0.95, duration: 0.8, ease: "power2.out" }) 
+      .to({}, { duration: 0.8 }) 
+
+      // Geser ke Bawah
+      .to(wrapper, { scale: 0.65, duration: 1, ease: "power1.inOut" }, "step2")
+      .to(canvas, { x: "-180vw", y: "-120vh", duration: 1.5, ease: "power1.inOut" }, "step2")
+      .to(wrapper, { scale: 0.95, duration: 0.8, ease: "power2.out" }) 
+      .to({}, { duration: 0.8 }) 
+
+      // Geser ke Kiri
+      .to(wrapper, { scale: 0.65, duration: 1, ease: "power1.inOut" }, "step3")
+      .to(canvas, { x: "-20vw", y: "-120vh", duration: 1.5, ease: "power1.inOut" }, "step3")
+      .to(wrapper, { scale: 0.95, duration: 0.8, ease: "power2.out" }) 
+      .to({}, { duration: 0.8 }) 
+
+      // Kembali ke Tengah / Quote
+      .to(wrapper, { scale: 0.6, duration: 1.5, ease: "power1.inOut" }, "step4") 
+      .to(canvas, { x: "-100vw", y: "-60vh", duration: 2, ease: "power1.inOut" }, "step4")
+      
+      .to(wrapper, { scale: 0.95, duration: 1, ease: "power2.out" }) 
+      .to(quote, { 
+          duration: 5, 
+          scrambleText: { 
+            text: finalQuoteText, 
+            chars: "BatikSoloWastra", 
+            revealDelay: 1, 
+            speed: 0.1, 
+          }
+      }, "<0.3") 
+      
+      .to({}, { duration: 1.5 });
+</script>
