@@ -41,43 +41,51 @@ import batikSogan4 from "../assets/images/batik_sogan_4.png";
 	>
 		<!-- Farthest (Paling Jauh) - Kiri Atas -->
 		<div
-			class="parallax-item absolute top-[8%] left-[4%] w-32 h-48 md:w-40 md:h-56 shadow-2xl opacity-100 blur-[8px] z-0"
+			class="parallax-item absolute top-[8%] left-[4%] w-32 h-48 md:w-40 md:h-56 z-0"
 			style="transform: translateZ(-800px) rotate(-15deg);"
 			data-direction="-1, -1"
 		>
-			<!-- Dark overlay to blend into the darkness instead of being transparent -->
-			<div class="absolute inset-0 bg-[#0d0500]/60 z-10 pointer-events-none"></div>
-			<Image src={batikSogan3} alt="Batik Sogan Jauh" class="w-full h-full object-cover" format="avif" />
+			<div class="float-item w-full h-full shadow-2xl opacity-100 blur-[8px]">
+				<!-- Dark overlay to blend into the darkness instead of being transparent -->
+				<div class="absolute inset-0 bg-[#0d0500]/60 z-10 pointer-events-none"></div>
+				<Image src={batikSogan3} alt="Batik Sogan Jauh" class="w-full h-full object-cover" format="avif" />
+			</div>
 		</div>
 
 		<!-- Mid-Far (Agak Jauh) - Kanan Atas -->
 		<div
-			class="parallax-item absolute top-[12%] right-[6%] w-36 h-52 md:w-48 md:h-64 shadow-2xl opacity-100 blur-[5px] z-10"
+			class="parallax-item absolute top-[12%] right-[6%] w-36 h-52 md:w-48 md:h-64 z-10"
 			style="transform: translateZ(-600px) rotate(10deg);"
 			data-direction="1, -1"
 		>
-			<div class="absolute inset-0 bg-[#0d0500]/40 z-10 pointer-events-none"></div>
-			<Image src={batikSogan4} alt="Batik Sogan Menengah" class="w-full h-full object-cover" format="avif" />
+			<div class="float-item w-full h-full shadow-2xl opacity-100 blur-[5px]">
+				<div class="absolute inset-0 bg-[#0d0500]/40 z-10 pointer-events-none"></div>
+				<Image src={batikSogan4} alt="Batik Sogan Menengah" class="w-full h-full object-cover" format="avif" />
+			</div>
 		</div>
 
 		<!-- Mid-Close (Agak Dekat) - Kiri Bawah -->
 		<div
-			class="parallax-item absolute bottom-[15%] left-[10%] w-44 h-60 md:w-56 md:h-72 shadow-2xl opacity-100 blur-[2px] z-20"
+			class="parallax-item absolute bottom-[15%] left-[10%] w-44 h-60 md:w-56 md:h-72 z-20"
 			style="transform: translateZ(-300px) rotate(-8deg);"
 			data-direction="-1, 1"
 		>
-			<div class="absolute inset-0 bg-[#0d0500]/20 z-10 pointer-events-none"></div>
-			<Image src={batikSogan1} alt="Batik Sogan Dekat" class="w-full h-full object-cover" format="avif" />
+			<div class="float-item w-full h-full shadow-2xl opacity-100 blur-[2px]">
+				<div class="absolute inset-0 bg-[#0d0500]/20 z-10 pointer-events-none"></div>
+				<Image src={batikSogan1} alt="Batik Sogan Dekat" class="w-full h-full object-cover" format="avif" />
+			</div>
 		</div>
 
 		<!-- Closest (Paling Dekat) - Kanan Bawah -->
 		<div
-			class="parallax-item absolute bottom-[8%] right-[8%] w-48 h-64 md:w-64 md:h-80 shadow-2xl opacity-100 blur-[1px] z-30"
+			class="parallax-item absolute bottom-[8%] right-[8%] w-48 h-64 md:w-64 md:h-80 z-30"
 			style="transform: translateZ(0px) rotate(5deg);"
 			data-direction="1, 1"
 		>
-			<div class="absolute inset-0 bg-[#0d0500]/10 z-10 pointer-events-none"></div>
-			<Image src={batikSogan2} alt="Batik Sogan Sangat Dekat" class="w-full h-full object-cover" format="avif" />
+			<div class="float-item w-full h-full shadow-2xl opacity-100 blur-[1px]">
+				<div class="absolute inset-0 bg-[#0d0500]/10 z-10 pointer-events-none"></div>
+				<Image src={batikSogan2} alt="Batik Sogan Sangat Dekat" class="w-full h-full object-cover" format="avif" />
+			</div>
 		</div>
 	</div>
 
@@ -133,9 +141,10 @@ import batikSogan4 from "../assets/images/batik_sogan_4.png";
 
 	document.addEventListener("DOMContentLoaded", () => {
 		const parallaxItems = document.querySelectorAll(".parallax-item");
+		const floatItems = document.querySelectorAll(".float-item");
 		
 		// 1. Continuous Auto-Floating 3D Animation (Replaces Cursor Parallax)
-		parallaxItems.forEach((item, index) => {
+		floatItems.forEach((item, index) => {
 			// Create a gentle random floating animation
 			gsap.to(item, {
 				y: "+=40", // Float up/down
