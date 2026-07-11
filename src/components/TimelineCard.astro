@@ -1,30 +1,40 @@
 ---
 interface Props {
-    image: string;
-    title: string;
-    description: string;
-    right: boolean;
+  image: string;
+  title: string;
+  description: string;
+  right: boolean;
 }
 
 const { image, title, description } = Astro.props as Props;
 ---
 
-<div class="relative bg-[#eedfcc] p-3 md:p-4 border border-[#c8a97a] shadow-2xl transition-all duration-500 ease-out w-[85vw] max-w-sm sm:max-w-md md:w-[28rem] mx-auto text-left">
-    <!-- Texture overlay for paper effect -->
-    <div
-        class="absolute inset-0 opacity-50 pointer-events-none mix-blend-multiply"
-        style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E');"
-    ></div>
-
-    <!-- Image Container -->
-    <div class="relative overflow-hidden border border-[#a07840]/30 aspect-square w-full">
-        <img src={image} alt={title} class="w-full h-full object-cover" />
-    </div>
-
-    <!-- Text Content -->
-    <div class="relative pt-4 pb-2 px-2 mix-blend-multiply flex flex-col gap-2 text-center">
-        <h3 class="font-heading text-[#3d1a06] text-2xl sm:text-3xl font-bold leading-tight">{title}</h3>
-        <p class="font-body text-[#5c3115] text-sm sm:text-base leading-relaxed">{description}</p>
-    </div>
+<!--
+  Mobile / md  (< 1024px): card 320px max, gambar landscape 3:2
+  lg+ (≥ 1024px)         : card 500px, gambar square 1:1
+-->
+<div
+  class="bg-neutral-light flex flex-col gap-2.5 lg:gap-4 p-3 lg:p-4 rounded-xl w-[min(80vw,320px)] lg:w-125"
+>
+  <div class="w-full">
+    <img
+      src={image}
+      alt={title}
+      class="object-cover rounded-lg lg:rounded-xl w-full aspect-3/2 lg:aspect-square"
+      height="512"
+      width="512"
+    />
+  </div>
+  <div class="flex flex-col gap-1 lg:gap-2">
+    <h3
+      class="text-sm md:text-base lg:text-3xl font-bold text-black font-heading leading-tight"
+    >
+      {title}
+    </h3>
+    <p
+      class="text-[11px] md:text-xs lg:text-lg text-black/70 font-body leading-snug"
+    >
+      {description}
+    </p>
+  </div>
 </div>
-
