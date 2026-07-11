@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* Colors */
-  --color-primary: #603601;
-  --color-secondary: #361500;
-  --color-accent: #cc9544;
-  --color-neutral-dark: #1c0a00;
-  --color-neutral-light: #fdfbf7;
+	/* Colors */
+	--color-primary: #603601;
+	--color-secondary: #361500;
+	--color-accent: #cc9544;
+	--color-neutral-dark: #1c0a00;
+	--color-neutral-light: #fdfbf7;
 
-  /* Fonts */
-  --font-heading: "DM Serif Display", serif;
-  --font-body: "DM Sans", sans-serif;
+	/* Fonts */
+	--font-heading: "Playfair Display", serif;
+	--font-body: "Plus Jakarta Sans", sans-serif;
 }
 
 @theme {
-  --color-primary: var(--color-primary);
-  --color-secondary: var(--color-secondary);
-  --color-accent: var(--color-accent);
-  --color-neutral-dark: var(--color-neutral-dark);
-  --color-neutral-light: var(--color-neutral-light);
+	--color-primary: var(--color-primary);
+	--color-secondary: var(--color-secondary);
+	--color-accent: var(--color-accent);
+	--color-neutral-dark: var(--color-neutral-dark);
+	--color-neutral-light: var(--color-neutral-light);
 
-  --font-heading: var(--font-heading);
-  --font-body: var(--font-body);
+	--font-heading: var(--font-heading);
+	--font-body: var(--font-body);
 }
