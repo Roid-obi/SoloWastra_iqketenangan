@@ -1,106 +1,106 @@
 [
   {
-    "id": "semen-gendong",
-    "name": "Motif Semen Gendong",
-    "image": "batik_semen_gendong.png",
-    "makna": "Kasih sayang seorang ibu yang merawat anaknya dengan sepenuh hati dan penuh cinta.",
-    "tentang": "Kata 'Semen' berasal dari kata 'semi' yang berarti tumbuh atau berkembang. 'Gendong' merujuk pada cara tradisional menggendong bayi. Motif ini menampilkan flora dan fauna yang tumbuh subur, melambangkan kehidupan yang terus berkembang dan tumbuh.",
-    "filosofi": [
-      "Menggambarkan kasih sayang tulus seorang ibu kepada anaknya.",
-      "Pertumbuhan alam yang terus-menerus sebagai simbol kehidupan yang berkelanjutan."
-    ],
-    "kegunaan": "Pakaian Ibu Menyusui, Busana Sehari-hari, Acara Keluarga",
-    "fakta": "Motif ini sering dipilih untuk busana acara tasyakuran kelahiran bayi sebagai doa agar sang anak tumbuh sehat dan subur layaknya alam."
-  },
-  {
     "id": "sidomukti",
-    "name": "Motif Sidomukti",
-    "image": "batik_sogan_3.png",
+    "name": "Batik Motif Sidomukti",
+    "image": "batik_gen_sidomukti.png",
     "makna": "Harapan akan kehidupan yang bahagia, sejahtera, dan penuh kedamaian di masa depan.",
-    "tentang": "Kata \"Sido\" berarti menjadi atau terus-menerus, sedangkan \"Mukti\" berarti makmur atau sejahtera. Motif ini merupakan salah satu motif klasik keraton yang sangat disakralkan. Secara visual, Sidomukti menampilkan ornamen utama berupa garuda, kupu-kupu, singgasana, dan bangunan meru.",
+    "tentang": "Kata \"Sido\" berarti menjadi atau terus-menerus, sedangkan \"Mukti\" berarti makmur atau sejahtera. Motif ini merupakan salah satu motif klasik keraton yang sangat disakralkan. Secara visual, Sidomukti menampilkan ornamen utama berupa garuda, kupu-kupu, singgasana, dan bangunan meru. Coraknya digambar menggunakan pewarna alami soga (cokelat kekuningan) yang memberi kesan elegan, hangat, dan membumi, khas gaya Kesunanan Surakarta.",
     "filosofi": [
       "Melambangkan doa agar penggunanya mendapatkan kemakmuran di dunia maupun di akhirat.",
       "Elemen kupu-kupu bermakna kebebasan, keindahan, dan pencerahan setelah melalui proses panjang metamorfosis."
     ],
-    "kegunaan": "Pakaian Pengantin, Acara Adat, Seragam Besan",
+    "kegunaan": "Pakaian Pengantin, Acara Adat, Seragam Besan.",
     "fakta": "Batik ini adalah pakaian wajib bagi sepasang pengantin pada upacara adat Jawa (Panggih) agar rumah tangga mereka selalu dilimpahi keberkahan dan rezeki."
   },
   {
-    "id": "parang",
-    "name": "Motif Parang",
-    "image": "batik_sogan_1.png",
-    "makna": "Perjuangan yang tidak pernah putus, ibarat ombak lautan yang terus bergerak.",
-    "tentang": "Parang berasal dari kata 'pereng' yang berarti lereng. Motif ini berbentuk diagonal yang tidak terputus, menggambarkan semangat juang yang tidak pernah padam. Motif ini dahulu adalah motif larangan yang hanya boleh dikenakan raja dan bangsawan.",
+    "id": "semen-gendong",
+    "name": "Batik Motif Semen Gendong",
+    "image": "batik_gen_semengendong.png",
+    "makna": "Doa agar segera dikaruniai keturunan dan harapan akan limpahan kasih sayang orang tua yang abadi.",
+    "tentang": "Kata \"Semen\" berasal dari kata semi yang berarti tumbuh atau bersemi, melambangkan kehidupan baru. Visualnya dipenuhi oleh ornamen flora (tumbuhan menjalar) dan fauna (burung atau sepasang binatang) dengan dominasi warna soga gelap. Struktur motifnya memberikan kesan rapat namun dinamis, menggambarkan pertumbuhan yang subur.",
     "filosofi": [
-      "Menggambarkan semangat pantang menyerah dan kesinambungan kehidupan.",
-      "Mengingatkan pemakainya untuk selalu memiliki tekad yang lurus dan teguh."
+      "Melambangkan harapan besar agar sebuah keluarga segera mendapatkan momongan (gendongan) yang berbakti.",
+      "Menggambarkan tanggung jawab, ketulusan, dan ikatan batin yang tak terputus antara orang tua dan anak."
     ],
-    "kegunaan": "Upacara Adat, Pakaian Kebesaran Raja",
-    "fakta": "Motif Parang adalah lambang kekuasaan dan kepemimpinan dalam tradisi Jawa, dahulu dilarang dikenakan rakyat biasa."
+    "kegunaan": "Acara Mitoni (Tujuh Bulanan Kehamilan), Upacara Pernikahan oleh orang tua mempelai.",
+    "fakta": "Motif ini sering dihadiahkan oleh mertua kepada menantu perempuan sebagai simbol restu dan doa tulus agar garis keturunan keluarga terus berlanjut."
+  },
+  {
+    "id": "parang",
+    "name": "Batik Motif Parang",
+    "image": "batik_gen_parang.png",
+    "makna": "Keteguhan hati, jalinan ikatan yang tak pernah putus, dan semangat pantang menyerah dalam mengarungi kehidupan.",
+    "tentang": "Parang adalah salah satu motif batik tertua di Indonesia. Memiliki bentuk dasar huruf \"S\" yang diagonal dan saling berkesinambungan. Ciri khas Parang Solo terletak pada kemiringan sudutnya yang presisi serta kontras warna soga dan latar putih (blenggot) yang bersih dan tegas, menciptakan visual yang berwibawa.",
+    "filosofi": [
+      "Bentuk ombak samudra melambangkan kekuatan, kekuasaan, dan semangat yang tidak pernah surut untuk memerangi hawa nafsu.",
+      "Garis diagonal melambangkan keadilan, cita-cita yang luhur, dan kesetiaan pada kebenaran."
+    ],
+    "kegunaan": "Pakaian Resmi Keraton, Upacara Kenegaraan, Busana Formal Kontemporer.",
+    "fakta": "Dahulu di lingkungan Keraton Surakarta, motif Parang (terutama Parang Barong berukuran besar) merupakan Batik Larangan yang hanya boleh dikenakan oleh Raja dan keluarga inti kerajaan."
   },
   {
     "id": "truntum",
-    "name": "Motif Truntum",
-    "image": "batik_sogan_2.png",
-    "makna": "Cinta yang bersemi kembali, tulus, tanpa syarat, dan abadi.",
-    "tentang": "Diciptakan oleh Kanjeng Ratu Kencana, motif ini berbentuk taburan bunga-bunga kecil menyerupai bintang di langit malam. Konon, motif ini dibuat saat sang ratu merenung menatap bintang, berharap cinta raja bersemi kembali.",
+    "name": "Batik Motif Truntum",
+    "image": "batik_gen_truntum.png",
+    "makna": "Cinta yang tumbuh kembali, ketulusan yang murni, serta kesetiaan yang tak lekang oleh waktu.",
+    "tentang": "Diciptakan oleh Kanjeng Ratu Kencana (Permaisuri Sunan Pakubuwana III), motif ini terinspirasi dari keindahan bintang-bintang di langit malam yang sunyi. Secara visual, Truntum berbentuk kumpulan bintang kecil geometris yang sangat rumit dan halus, digarap di atas latar belakang kain yang gelap menggunakan canting berukuran sangat kecil.",
     "filosofi": [
-      "Bunga kecil melambangkan cinta yang tumbuh dari hal-hal kecil menjadi keindahan tak terbatas.",
-      "Membawa pesan kedamaian dan kesetiaan dalam sebuah hubungan."
+      "Kata \"Truntum\" berarti menuntun atau tumbuh kembali, menyimbolkan cinta yang kembali bersemi setelah melalui masa-masa sulit.",
+      "Melambangkan peran orang tua yang berkewajiban menuntun dan mendampingi anak-anaknya memasuki gerbang kehidupan yang baru."
     ],
-    "kegunaan": "Pakaian Orang Tua Pengantin, Busana Resmi",
-    "fakta": "Sering dipakai oleh orang tua pengantin dengan harapan dapat 'menuntun' (tumaruntum) kedua mempelai memasuki kehidupan baru."
+    "kegunaan": "Pakaian Orang Tua Mempelai dalam Upacara Pernikahan (Midodareni dan Panggih).",
+    "fakta": "Ratu Kencana menciptakan motif ini saat merasa diabaikan oleh Sunan. Terkesan oleh keindahan kain bertabur \"bintang\" yang dibuat sang ratu dengan penuh ketulusan, cinta Sunan pun bersemi kembali."
   },
   {
     "id": "kawung",
-    "name": "Motif Kawung",
-    "image": "batik_sogan_4.png",
-    "makna": "Kesucian, umur panjang, dan pengendalian diri yang sempurna.",
-    "tentang": "Motif Kawung merupakan pola geometris berbentuk empat bulatan lonjong yang menyerupai buah aren. Motif ini adalah salah satu motif tertua yang dulunya hanya boleh dikenakan oleh keluarga Keraton.",
+    "name": "Batik Motif Kawung",
+    "image": "batik_gen_kawung.png",
+    "makna": "Pengendalian diri yang kuat, kesucian hati, keadilan, dan keseimbangan hidup.",
+    "tentang": "Motif ini menyerupai buah kawung (buah kolang-kaling) atau lingkaran yang saling berpotongan membentuk empat arah mata angin dengan satu pusat di tengah. Pola geometrisnya sangat simetris dan rapi, umumnya dipadukan dengan aksen titik-titik (isen-isen) khas Solo dan pewarnaan soga cokelat tua yang anggun.",
     "filosofi": [
-      "Mengajarkan manusia untuk selalu ingat akan asal-usulnya.",
-      "Melambangkan keseimbangan energi alam semesta dan pengendalian hawa nafsu."
+      "Melambangkan hati yang bersih dan kosong dari hawa nafsu duniawi agar dapat memimpin dengan adil.",
+      "Struktur empat arah mata angin melambangkan konsep Sedulur Papat Limo Pancer, yaitu keseimbangan antara diri manusia dengan alam semesta."
     ],
-    "kegunaan": "Pakaian Kebesaran Keraton, Acara Formal",
-    "fakta": "Pada zaman dahulu, motif ini adalah motif larangan yang dikhususkan bagi raja dan bangsawan tinggi Kesunanan Surakarta."
+    "kegunaan": "Busana Formal, Seragam Kantor, Acara Adat Pertemuan Keluarga.",
+    "fakta": "Kawung merupakan salah satu motif paling populer di dunia fashion modern karena pola geometrisnya yang minimalis dan sangat mudah diadaptasi ke berbagai potongan baju modern seperti blazer atau kemeja kasual."
   },
   {
     "id": "sekarjagad",
-    "name": "Motif Sekar Jagad",
-    "image": "batik_sogan_1.png",
-    "makna": "Keindahan keberagaman dunia yang menyatu dalam sebuah harmoni.",
-    "tentang": "Kata 'Sekar' berarti bunga, dan 'Jagad' berarti dunia. Motif ini berupa kumpulan pola-pola berbeda yang dibatasi oleh garis lengkung, menyerupai peta pulau-pulau di lautan.",
+    "name": "Batik Motif Sekar Jagad",
+    "image": "batik_gen_sekarjagad.png",
+    "makna": "Keragaman budaya yang bersatu dalam keindahan, serta cerminan kegembiraan hidup.",
+    "tentang": "Nama \"Sekar\" berarti bunga, dan \"Jagad\" berarti dunia. Secara visual, Sekar Jagad memiliki tampilan unik yang menyerupai peta dunia berisikan kumpulan motif-motif batik yang berbeda (seperti parang, kawung, dan flora) yang disatukan oleh garis pembatas acak. Dominasi warna soga cokelat dan krem memberikan harmoni visual yang memikat.",
     "filosofi": [
-      "Menghargai perbedaan dan keberagaman budaya sebagai sumber keindahan.",
-      "Kecantikan alam semesta yang tiada tara berasal dari ragam yang bersatu."
+      "Melambangkan keindahan keluhuran budi pekerti dan kebahagiaan yang tersebar di seluruh penjuru dunia.",
+      "Mengajarkan tentang pentingnya toleransi, di mana perbedaan-perbedaan karakter dapat bersatu membentuk satu kesatuan yang sangat indah."
     ],
-    "kegunaan": "Pakaian Resmi, Busana Sehari-hari",
-    "fakta": "Setiap bidang dalam Sekar Jagad sering diisi oleh motif batik klasik lainnya, menjadikannya 'ensiklopedia' motif dalam satu kain."
+    "kegunaan": "Pakaian Pesta, Busana Harian, Kain Kebaya formal.",
+    "fakta": "Karena memuat potongan-potongan dari berbagai motif klasik lainnya, Sekar Jagad sering disebut sebagai \"ensiklopedia visual\" Batik Jawa."
   },
   {
     "id": "sawat",
-    "name": "Motif Sawat",
-    "image": "batik_sawat.png",
-    "makna": "Kekuasaan yang tinggi, perlindungan, dan kejayaan.",
-    "tentang": "Sawat berasal dari sayap (sayap Garuda). Motif ini menonjolkan bentuk sepasang sayap besar yang membentang lebar, dikenal juga sebagai motif Lar yang merupakan lambang kekuasaan tertinggi.",
+    "name": "Batik Motif Sawat",
+    "image": "batik_gen_sawat.png",
+    "makna": "Perlindungan dari kekuatan gaib, kekuasaan yang bijaksana, serta kedudukan yang luhur.",
+    "tentang": "Kata \"Sawat\" berarti sayap. Motif ini menampilkan ornamen utama berupa sepasang sayap burung garuda yang terbentang lebar dengan ekor di bagian tengahnya (sering disebut Sawat Lar). Visualnya sangat megah dan dinamis, dipadukan dengan sulur-sulur tanaman kecil dan warna soga yang pekat.",
     "filosofi": [
-      "Perlindungan sang pemimpin terhadap rakyatnya layaknya elang melindungi sarangnya.",
-      "Simbol kebesaran dan kekuatan dewa dalam mitologi Hindu-Jawa."
+      "Burung Garuda adalah kendaraan Dewa Wisnu yang melambangkan kekuatan raja, ketegasan, dan sifat pelindung.",
+      "Menggunakan motif ini dipercaya dapat memberikan aura kewibawaan dan melindungi pemakainya dari energi negatif."
     ],
-    "kegunaan": "Pakaian Raja dan Putra Mahkota",
-    "fakta": "Motif Sawat adalah salah satu pola sakral yang sering dipadukan dalam motif lain, dan ornamennya kini juga menginspirasi lambang negara Indonesia."
+    "kegunaan": "Upacara Sakral Keraton, Busana Pemimpin/Pejabat, Acara Hajatan Besar.",
+    "fakta": "Pada masa lalu, motif Sawat berukuran besar sangat dihormati dan dianggap memiliki kekuatan spiritual khusus untuk menjaga keselamatan para bangsawan yang memakainya."
   },
   {
     "id": "semenrante",
-    "name": "Motif Semen Rante",
-    "image": "batik_sogan_2.png",
-    "makna": "Ikatan cinta yang kuat dan kokoh layaknya rantai yang tidak terputus.",
-    "tentang": "Motif golongan Semen (Semi/Tumbuh) yang dipadukan dengan ornamen rantai yang tidak terputus. Menggambarkan pertumbuhan kehidupan yang diikat oleh kesetiaan dan komitmen yang kuat.",
+    "name": "Batik Motif Semen Rante",
+    "image": "batik_gen_semenrante.png",
+    "makna": "Ikatan cinta yang kokoh, kesetiaan mutlak, dan komitmen yang tak tergoyahkan.",
+    "tentang": "Bagian dari keluarga motif Semen, namun memiliki ciri khas ornamen berbentuk rantai atau jalinan ikatan yang saling mengunci di antara tumbuh-tumbuhan yang mekar. Warnanya cenderung soga matang (cokelat tua kemerahan) dengan latar belakang yang dipenuhi isen-isen halus (cecek).",
     "filosofi": [
-      "Tumbuhnya kehidupan yang diikat oleh kesetiaan abadi antar insan.",
-      "Tidak ada yang bisa memisahkan dua insan yang sudah ditakdirkan bersama."
+      "Melambangkan jalinan hubungan manusia yang kokoh, baik ikatan pernikahan maupun ikatan persaudaraan yang tak dapat dipisahkan oleh apa pun.",
+      "Menggambarkan doa agar sepasang kekasih selalu terikat dalam komitmen suci dan saling menjaga kesetiaan."
     ],
-    "kegunaan": "Pakaian Lamaran, Upacara Tukar Cincin, Siraman",
-    "fakta": "Menjadi kain favorit saat prosesi lamaran adat Jawa sebagai simbol pengikat komitmen kedua calon mempelai yang saling mencintai."
+    "kegunaan": "Upacara Lamaran (Engangement), Pakaian Utusan dalam Prosesi Tembungan.",
+    "fakta": "Sesuai dengan filosofinya, kain batik Semen Rante sering kali dikenakan oleh pihak wanita saat acara lamaran sebagai sinyal visual bahwa hatinya telah \"terikat\" dan siap melangkah ke pelaminan."
   }
 ]

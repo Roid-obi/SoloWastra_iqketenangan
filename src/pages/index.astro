@@ -16,6 +16,7 @@ import Dummy from "../components/Dummy.astro";
 ---
 
 <Layout>
+	<Navbar />
 	<main class="relative w-full">
 		<Hero />
 
@@ -23,38 +24,100 @@ import Dummy from "../components/Dummy.astro";
 		<div id="story-wrapper" class="relative w-full">
 
 			<!-- Sticky Container for Introduction -->
-			<div class="sticky top-0 w-full h-screen flex flex-col justify-center overflow-hidden z-10" id="intro-container">
+			<div class="relative md:sticky md:top-0 w-full min-h-screen md:h-screen flex flex-col justify-center overflow-hidden z-10" id="intro-container">
 				<Introduction />
 			</div>
 
 			<!-- Spacer to create scroll distance for pinning effect -->
-			<div class="h-screen w-full"></div>
+			<div class="hidden md:block h-screen w-full"></div>
 
 			<!-- Sticky Container for WhySolo -->
-			<div class="sticky top-0 w-full h-screen flex flex-col justify-center overflow-hidden z-20 pointer-events-none" id="why-container">
-				<div class="pointer-events-auto w-full h-full">
+			<div class="relative md:sticky md:top-0 w-full min-h-screen md:h-screen flex flex-col justify-center overflow-hidden z-20 md:pointer-events-none" id="why-container">
+				<div class="md:pointer-events-auto w-full h-full flex items-center justify-center">
 					<WhySolo />
 				</div>
 			</div>
 
 			<!-- Final Spacer -->
-			<div class="h-screen w-full"></div>
+			<div class="hidden md:block h-screen w-full"></div>
 
 		</div>
 
 		<!-- Gallery Section -->
 		<Gallery />
 
+		<MakingProcess />
+        <HistoricalTimeline />
+        <ModernLife />
+
+		<!-- Preserving Heritage / SDG 11 Impact -->
+		<PreservingHeritage />
+
+		<!-- Closing CTA -->
+		<ClosingCta />
+
 	</main>
+
+	<!-- Footer -->
+	<Footer />
 
 	<!-- Modals -->
 	<BatikModal />
-	<MakingProcess />
-	<HistoricalTimeline />
-	<ModernLife />
 </Layout>
 
 <script>
 	import { initSmoothScroll } from "../lib/smooth-scroll";
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 	initSmoothScroll();
+
+	// Register ScrollTrigger
+	gsap.registerPlugin(ScrollTrigger);
+
+	// Animate Introduction Text (Works on all screens)
+	gsap.to(".blur-text", {
+		filter: "blur(0px)",
+		opacity: 1,
+		y: 0,
+		stagger: 0.3,
+		duration: 1.2,
+		ease: "power2.out",
+		scrollTrigger: {
+			trigger: "#intro-container",
+			start: "top center",
+		}
+	});
+
+	// Only apply pinning/stacking parallax on desktop
+	let mm = gsap.matchMedia();
+
+	mm.add("(min-width: 768px)", () => {
+		// Animate Introduction Card (Shrink and rotate left)
+		gsap.to(".intro-card", {
+			scrollTrigger: {
+				trigger: "#intro-container",
+				start: "top top",
+				end: "bottom top",
+				scrub: true,
+			},
+			scale: 0.9,
+			rotation: -3,
+			opacity: 0.8,
+			ease: "none",
+		});
+
+		// Animate WhySolo Card (Shrink and rotate right)
+		gsap.to(".why-card", {
+			scrollTrigger: {
+				trigger: "#why-container",
+				start: "top top",
+				end: "bottom top",
+				scrub: true,
+			},
+			scale: 0.9,
+			rotation: 3,
+			ease: "none",
+		});
+	});
 </script>
