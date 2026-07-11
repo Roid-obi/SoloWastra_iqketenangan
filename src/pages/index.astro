@@ -1,4 +1,8 @@
 ---
+import ClosingCta from "../components/ClosingCta.astro";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import PreservingHeritage from "../components/PreservingHeritage.astro";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Introduction from "../components/Introduction.astro";
@@ -44,66 +48,6 @@ import BatikModal from "../components/BatikModal.astro";
 </Layout>
 
 <script>
-	import gsap from "gsap";
-	import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-	gsap.registerPlugin(ScrollTrigger);
-
-	document.addEventListener("DOMContentLoaded", () => {
-		// 1. Hero Scroll Parallax
-		gsap.to("#hero", {
-			yPercent: 30,
-			ease: "none",
-			scrollTrigger: {
-				trigger: "#hero",
-				start: "top top",
-				end: "bottom top",
-				scrub: true,
-			},
-		});
-
-		// 2. Blur Reveal for Introduction
-		gsap.to(".blur-text", {
-			filter: "blur(0px)",
-			opacity: 1,
-			y: 0,
-			duration: 1.5,
-			stagger: 0.2,
-			ease: "power3.out",
-			scrollTrigger: {
-				trigger: "#intro-container",
-				start: "top 70%",
-			},
-		});
-
-		// 3. Pin & Send to Back Animation for Introduction Card
-		// When scrolling past the intro, scale it down and rotate left
-		gsap.to(".intro-card", {
-			scale: 0.9,
-			rotation: -3,
-			opacity: 0.7,
-			ease: "none",
-			scrollTrigger: {
-				trigger: "#intro-container",
-				start: "top top",
-				end: "+=100%", // Animates during the scroll over the spacer
-				scrub: true,
-			},
-		});
-
-		// 4. Send to Back Animation for WhySolo Card
-		// Animating the why-card itself to slide back and rotate right when scrolling past it
-		gsap.to(".why-card", {
-			scale: 0.8,
-			rotation: 6,
-			// Keeping opacity 1 as requested (tidak dibuat transparan)
-			ease: "none",
-			scrollTrigger: {
-				trigger: "#why-container",
-				start: "top top", 
-				end: "+=100%", // Animates during the scroll over the final spacer
-				scrub: true,
-			},
-		});
-	});
+	import { initSmoothScroll } from "../lib/smooth-scroll";
+	initSmoothScroll();
 </script>

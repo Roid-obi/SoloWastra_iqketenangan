@@ -1,0 +1,112 @@
+---
+const points = [
+	{
+		title: "Protect Local Identity",
+		hook: "Kalau bukan Solo yang jaga, siapa lagi?",
+		body: "Batik bukan sekadar identitas kota - dia yang bikin Solo terasa beda dari kota lain. Hilang ini, Solo tinggal nama di peta.",
+		icon: "city",
+	},
+	{
+		title: "Support Artisans",
+		hook: "Setiap motif ini masih ada tangan yang bikin.",
+		body: "Laweyan dan Kauman bukan cuma nama kampung wisata. Di sana, pengrajin masih menggantungkan hidup dari canting dan malam - tiap kain yang terjual, itu dapur yang tetap ngebul.",
+		icon: "hand",
+	},
+	{
+		title: "Inspire Young Generation",
+		hook: "Pakai batik itu keren. Tau ceritanya, itu beda level.",
+		body: "Kamu udah pakai batik buat outfit harian - tinggal satu langkah lagi: tau kenapa motif itu ada, biar makainya bukan cuma soal gaya, tapi juga identitas.",
+		icon: "bridge",
+	},
+];
+
+const icons: Record<string, string> = {
+	city: "M4 21V9l6-4 6 4v12M4 21h16M9 21v-6h4v6M9 12h.01M13 12h.01M9 9h.01M13 9h.01",
+	hand: "M8 12V6a2 2 0 1 1 4 0v5M12 11V4a2 2 0 1 1 4 0v7M16 11.5V6a2 2 0 1 1 4 0v8c0 4-2.5 7-7 7s-7-2.5-8-5l-1.3-3.5A1.7 1.7 0 0 1 6.6 10a1.7 1.7 0 0 1 1.9.6L10 13",
+	bridge: "M2 20h20M4 20v-6M20 20v-6M4 14c0-5 4-8 8-8s8 3 8 8M9 20v-4M15 20v-4",
+};
+---
+
+<section id="preserving-heritage" class="relative overflow-hidden bg-neutral-light py-24 md:py-32">
+	<div
+		class="absolute right-6 top-6 z-10 flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-primary md:right-10 md:top-10"
+	>
+		<span class="h-2 w-2 rounded-full bg-accent"></span>
+		SDG 11
+	</div>
+
+	<div class="section-container">
+		<div class="mx-auto max-w-2xl text-center">
+			<p class="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-primary">
+				Pelestarian Berkelanjutan
+			</p>
+			<h2 class="text-balance font-heading text-3xl leading-tight text-neutral-dark sm:text-4xl md:text-[2.75rem]">
+				Merawat Budaya, Membangun Masa Depan Berkelanjutan
+			</h2>
+			<p class="mt-5 text-balance leading-relaxed text-neutral-dark/70">
+				Sejalan dengan Tujuan Pembangunan Berkelanjutan (SDG 11),
+				pelestarian Batik Solo adalah langkah nyata menjaga identitas
+				kota.
+			</p>
+		</div>
+
+		<p
+			class="mx-auto mt-10 max-w-3xl text-balance text-center leading-relaxed text-neutral-dark/75"
+		>
+			Batik Solo tidak akan hilang selama masih ada yang memakainya - dan
+			generasi sekarang masih bangga mengenakannya sebagai fashion, bukan
+			sekadar formalitas adat. Yang perlahan menipis justru para pengrajin
+			yang membuatnya dari nol, dan cerita di balik tiap motif yang mereka
+			wariskan. SoloWastra hadir untuk menjaga jarak itu tetap dekat.
+		</p>
+
+		<div class="mt-16 grid gap-6 md:grid-cols-3">
+			{
+				points.map((point) => (
+					<div
+						data-sdg-point
+						class="rounded-2xl border border-primary/10 bg-white p-8 opacity-0 shadow-[0_1px_0_0_rgba(96,54,1,0.06)] transition-shadow duration-300 hover:shadow-soft"
+					>
+						<span class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/8 text-primary">
+							<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+								<path
+									d={icons[point.icon]}
+									stroke="currentColor"
+									stroke-width="1.6"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</svg>
+						</span>
+						<span class="mt-6 block font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-accent">{point.title}</span>
+						<h3 class="mt-2 text-balance font-heading text-xl leading-snug text-neutral-dark sm:text-2xl">"{point.hook}"</h3>
+						<p class="mt-3 text-sm leading-relaxed text-neutral-dark/70">{point.body}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<script>
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	const points = gsap.utils.toArray<HTMLElement>("[data-sdg-point]");
+	if (points.length) {
+		gsap.fromTo(
+			points,
+			{ opacity: 0, y: 28 },
+			{
+				opacity: 1,
+				y: 0,
+				duration: 0.7,
+				ease: "power3.out",
+				stagger: 0.15,
+				scrollTrigger: { trigger: points[0].closest("section"), start: "top 72%" },
+			},
+		);
+	}
+</script>
