@@ -2,7 +2,7 @@
   {
     "id": "sidomukti",
     "name": "Batik Motif Sidomukti",
-    "image": "batik_sogan_3.png",
+    "image": "batik_gen_sidomukti.png",
     "makna": "Harapan akan kehidupan yang bahagia, sejahtera, dan penuh kedamaian di masa depan.",
     "tentang": "Kata \"Sido\" berarti menjadi atau terus-menerus, sedangkan \"Mukti\" berarti makmur atau sejahtera. Motif ini merupakan salah satu motif klasik keraton yang sangat disakralkan. Secara visual, Sidomukti menampilkan ornamen utama berupa garuda, kupu-kupu, singgasana, dan bangunan meru. Coraknya digambar menggunakan pewarna alami soga (cokelat kekuningan) yang memberi kesan elegan, hangat, dan membumi, khas gaya Kesunanan Surakarta.",
     "filosofi": [
@@ -15,7 +15,7 @@
   {
     "id": "semen-gendong",
     "name": "Batik Motif Semen Gendong",
-    "image": "batik_semen_gendong.png",
+    "image": "batik_gen_semengendong.png",
     "makna": "Doa agar segera dikaruniai keturunan dan harapan akan limpahan kasih sayang orang tua yang abadi.",
     "tentang": "Kata \"Semen\" berasal dari kata semi yang berarti tumbuh atau bersemi, melambangkan kehidupan baru. Visualnya dipenuhi oleh ornamen flora (tumbuhan menjalar) dan fauna (burung atau sepasang binatang) dengan dominasi warna soga gelap. Struktur motifnya memberikan kesan rapat namun dinamis, menggambarkan pertumbuhan yang subur.",
     "filosofi": [
@@ -28,7 +28,7 @@
   {
     "id": "parang",
     "name": "Batik Motif Parang",
-    "image": "batik_sogan_1.png",
+    "image": "batik_gen_parang.png",
     "makna": "Keteguhan hati, jalinan ikatan yang tak pernah putus, dan semangat pantang menyerah dalam mengarungi kehidupan.",
     "tentang": "Parang adalah salah satu motif batik tertua di Indonesia. Memiliki bentuk dasar huruf \"S\" yang diagonal dan saling berkesinambungan. Ciri khas Parang Solo terletak pada kemiringan sudutnya yang presisi serta kontras warna soga dan latar putih (blenggot) yang bersih dan tegas, menciptakan visual yang berwibawa.",
     "filosofi": [
@@ -41,7 +41,7 @@
   {
     "id": "truntum",
     "name": "Batik Motif Truntum",
-    "image": "batik_sogan_2.png",
+    "image": "batik_gen_truntum.png",
     "makna": "Cinta yang tumbuh kembali, ketulusan yang murni, serta kesetiaan yang tak lekang oleh waktu.",
     "tentang": "Diciptakan oleh Kanjeng Ratu Kencana (Permaisuri Sunan Pakubuwana III), motif ini terinspirasi dari keindahan bintang-bintang di langit malam yang sunyi. Secara visual, Truntum berbentuk kumpulan bintang kecil geometris yang sangat rumit dan halus, digarap di atas latar belakang kain yang gelap menggunakan canting berukuran sangat kecil.",
     "filosofi": [
@@ -54,7 +54,7 @@
   {
     "id": "kawung",
     "name": "Batik Motif Kawung",
-    "image": "batik_sogan_4.png",
+    "image": "batik_gen_kawung.png",
     "makna": "Pengendalian diri yang kuat, kesucian hati, keadilan, dan keseimbangan hidup.",
     "tentang": "Motif ini menyerupai buah kawung (buah kolang-kaling) atau lingkaran yang saling berpotongan membentuk empat arah mata angin dengan satu pusat di tengah. Pola geometrisnya sangat simetris dan rapi, umumnya dipadukan dengan aksen titik-titik (isen-isen) khas Solo dan pewarnaan soga cokelat tua yang anggun.",
     "filosofi": [
@@ -67,7 +67,7 @@
   {
     "id": "sekarjagad",
     "name": "Batik Motif Sekar Jagad",
-    "image": "batik_sogan_1.png",
+    "image": "batik_gen_sekarjagad.png",
     "makna": "Keragaman budaya yang bersatu dalam keindahan, serta cerminan kegembiraan hidup.",
     "tentang": "Nama \"Sekar\" berarti bunga, dan \"Jagad\" berarti dunia. Secara visual, Sekar Jagad memiliki tampilan unik yang menyerupai peta dunia berisikan kumpulan motif-motif batik yang berbeda (seperti parang, kawung, dan flora) yang disatukan oleh garis pembatas acak. Dominasi warna soga cokelat dan krem memberikan harmoni visual yang memikat.",
     "filosofi": [
@@ -80,7 +80,7 @@
   {
     "id": "sawat",
     "name": "Batik Motif Sawat",
-    "image": "batik_sawat.png",
+    "image": "batik_gen_sawat.png",
     "makna": "Perlindungan dari kekuatan gaib, kekuasaan yang bijaksana, serta kedudukan yang luhur.",
     "tentang": "Kata \"Sawat\" berarti sayap. Motif ini menampilkan ornamen utama berupa sepasang sayap burung garuda yang terbentang lebar dengan ekor di bagian tengahnya (sering disebut Sawat Lar). Visualnya sangat megah dan dinamis, dipadukan dengan sulur-sulur tanaman kecil dan warna soga yang pekat.",
     "filosofi": [
@@ -93,7 +93,7 @@
   {
     "id": "semenrante",
     "name": "Batik Motif Semen Rante",
-    "image": "batik_sogan_2.png",
+    "image": "batik_gen_semenrante.png",
     "makna": "Ikatan cinta yang kokoh, kesetiaan mutlak, dan komitmen yang tak tergoyahkan.",
     "tentang": "Bagian dari keluarga motif Semen, namun memiliki ciri khas ornamen berbentuk rantai atau jalinan ikatan yang saling mengunci di antara tumbuh-tumbuhan yang mekar. Warnanya cenderung soga matang (cokelat tua kemerahan) dengan latar belakang yang dipenuhi isen-isen halus (cecek).",
     "filosofi": [
