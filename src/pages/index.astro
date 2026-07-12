@@ -24,7 +24,7 @@ import Dummy from "../components/Dummy.astro";
 		<div id="story-wrapper" class="relative w-full">
 
 			<!-- Sticky Container for Introduction -->
-			<div class="relative md:sticky md:top-0 w-full min-h-screen md:h-screen flex flex-col justify-center overflow-hidden z-10" id="intro-container">
+			<div class="relative md:sticky md:top-0 w-full min-h-screen md:h-screen flex flex-col justify-center z-10" id="intro-container">
 				<Introduction />
 			</div>
 
@@ -32,7 +32,7 @@ import Dummy from "../components/Dummy.astro";
 			<div class="hidden md:block h-screen w-full"></div>
 
 			<!-- Sticky Container for WhySolo -->
-			<div class="relative md:sticky md:top-0 w-full min-h-screen md:h-screen flex flex-col justify-center overflow-hidden z-20 md:pointer-events-none" id="why-container">
+			<div class="relative md:sticky md:top-0 w-full min-h-screen md:h-screen flex flex-col justify-center z-20 md:pointer-events-none" id="why-container">
 				<div class="md:pointer-events-auto w-full h-full flex items-center justify-center">
 					<WhySolo />
 				</div>
