@@ -2,73 +2,96 @@
 // BatikModal.astro
 ---
 
-<div id="batik-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none">
+<div id="batik-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-8 opacity-0 pointer-events-none">
 	<!-- Backdrop -->
-	<div id="modal-backdrop" class="absolute inset-0 bg-[#1c0a00] bg-opacity-80 backdrop-blur-md cursor-pointer"></div>
+	<div id="modal-backdrop" class="absolute inset-0 bg-[#0d0500]/90 backdrop-blur-sm cursor-pointer"></div>
 	
-	<!-- Modal Content (Kertas Surat Style) -->
-	<div id="modal-content" class="relative w-full max-w-6xl max-h-[90vh] bg-[#eedfcc] text-[#2c1808] p-8 md:p-12 shadow-2xl border border-[#d4c3a3] overflow-y-auto flex flex-col md:flex-row gap-8 scale-95 transform">
-		<!-- Texture overlay -->
-		<div class="absolute inset-0 opacity-60 pointer-events-none mix-blend-multiply" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
-		
-		<!-- Close Button -->
-		<button id="close-modal" class="absolute top-4 right-4 md:top-6 md:right-6 z-20 text-[#603601] hover:text-[#cc9544] transition-colors p-2">
-			<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-			</svg>
-		</button>
+	<!-- Close Button (Fixed at top right) -->
+	<button id="close-modal" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-[110] bg-[#1c0a00] text-[#cc9544] hover:bg-[#cc9544] hover:text-[#1c0a00] transition-colors p-3 rounded-none shadow-2xl border border-[#cc9544]/50 group">
+		<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform group-hover:rotate-90 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+		</svg>
+	</button>
 
-		<!-- Image Section -->
-		<div class="relative z-10 w-full md:w-1/3 flex-shrink-0 flex items-start justify-center">
-			<div class="border-4 border-[#eedfcc] shadow-xl w-full max-w-sm">
-				<img id="modal-image" src="" alt="Batik Motif" class="w-full h-auto object-cover border border-[#8a5a2b] border-opacity-30" />
+	<!-- Modal Content (Premium Split Layout) -->
+	<div id="modal-content" class="relative w-full max-w-6xl max-h-[90vh] bg-[#eedfcc] shadow-2xl border border-[#c8a97a] flex flex-col md:flex-row scale-95 transform rounded-none overflow-y-auto md:overflow-y-hidden" data-lenis-prevent>
+		<!-- Texture overlay -->
+		<div class="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply z-0" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
+		
+		<!-- Left: Image Section (Sticky on Desktop) -->
+		<div class="relative z-10 w-full md:w-2/5 lg:w-1/2 bg-[#1c0a00] border-b md:border-b-0 md:border-r border-[#c8a97a]/30 p-8 md:p-12 flex items-center justify-center min-h-[40vh] md:min-h-0 shrink-0">
+			<!-- A subtle glow behind image -->
+			<div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,_#cc9544_0%,_transparent_70%)] pointer-events-none"></div>
+			
+			<div class="relative w-full max-w-sm shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[#cc9544]/40 rounded-none bg-[#fdfbf7] p-2 sm:p-3 transform transition-transform hover:scale-[1.02] duration-500">
+				<img id="modal-image" src="" alt="Batik Motif" class="w-full aspect-[3/4] object-cover rounded-none" />
 			</div>
 		</div>
 
-		<!-- Details Section -->
-		<div class="relative z-10 w-full md:w-2/3 flex flex-col gap-6 mix-blend-multiply">
-			<h2 id="modal-title" class="text-4xl md:text-5xl font-heading font-bold text-[#603601] border-b-2 border-[#d4c3a3] pb-4">
-				Batik Motif
-			</h2>
-			
-			<div>
-				<h4 class="text-xl font-heading font-bold text-[#8a5a2b] mb-1">Makna Singkat</h4>
-				<p id="modal-makna" class="text-lg font-body italic text-[#361500]"></p>
-			</div>
-			
-			<div>
-				<h4 class="text-xl font-heading font-bold text-[#8a5a2b] mb-1">Tentang Motif</h4>
-				<p id="modal-tentang" class="text-lg font-body leading-relaxed text-[#361500]"></p>
-			</div>
-			
-			<div>
-				<h4 class="text-xl font-heading font-bold text-[#8a5a2b] mb-1">Filosofi</h4>
-				<ul id="modal-filosofi" class="list-disc list-outside ml-6 text-lg font-body leading-relaxed text-[#361500] space-y-1">
-				</ul>
-			</div>
-			
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-[#d4c3a3] border-opacity-50">
+		<!-- Right: Details Section (Scrollable on Desktop) -->
+		<div class="relative z-10 w-full md:w-3/5 lg:w-1/2 p-6 sm:p-8 md:p-12 lg:p-16 md:overflow-y-auto custom-scrollbar mix-blend-multiply" data-lenis-prevent>
+			<div class="flex flex-col gap-8 md:gap-10 pb-4 md:pb-8">
+				
+				<!-- Header -->
 				<div>
-					<h4 class="text-xl font-heading font-bold text-[#8a5a2b] mb-1">Digunakan Untuk</h4>
-					<p id="modal-kegunaan" class="text-lg font-body leading-relaxed text-[#361500] font-semibold"></p>
+					<span class="inline-block text-xs font-body font-bold tracking-[0.2em] uppercase text-[#8a5a2b] mb-3 border-b border-[#8a5a2b] pb-1">Mahakarya Wastra</span>
+					<h2 id="modal-title" class="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-[#3d1a06] leading-none mb-4">
+						Batik Motif
+					</h2>
+					<p id="modal-makna" class="text-lg md:text-xl font-heading italic text-[#8a5a2b]"></p>
 				</div>
+				
+				<div class="w-full h-px bg-gradient-to-r from-[#d4c3a3] via-[#8a5a2b]/40 to-transparent"></div>
+				
+				<!-- Description -->
 				<div>
-					<h4 class="text-xl font-heading font-bold text-[#8a5a2b] mb-1">Fakta Menarik</h4>
-					<p id="modal-fakta" class="text-lg font-body leading-relaxed text-[#361500]"></p>
+					<p id="modal-tentang" class="text-base sm:text-lg font-body leading-relaxed text-[#361500] text-justify first-letter:text-5xl first-letter:font-heading first-letter:font-bold first-letter:text-[#603601] first-letter:mr-2 first-letter:float-left first-letter:leading-none"></p>
 				</div>
+				
+				<!-- Philosophy Grid -->
+				<div class="bg-[#d4c3a3]/20 p-5 sm:p-6 border-l-4 border-[#8a5a2b]">
+					<h4 class="text-sm font-body font-bold tracking-widest uppercase text-[#8a5a2b] mb-4">Nilai & Filosofi</h4>
+					<ul id="modal-filosofi" class="list-none text-base sm:text-lg font-body leading-relaxed text-[#361500] space-y-3">
+						<!-- Populated by JS -->
+					</ul>
+				</div>
+				
+				<!-- Meta Info -->
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 pt-6 border-t border-[#d4c3a3]/50">
+					<div>
+						<h4 class="text-xs font-body font-bold tracking-widest uppercase text-[#8a5a2b] mb-2">Penggunaan Tradisional</h4>
+						<p id="modal-kegunaan" class="text-base font-body text-[#361500] font-medium leading-relaxed"></p>
+					</div>
+					<div>
+						<h4 class="text-xs font-body font-bold tracking-widest uppercase text-[#8a5a2b] mb-2">Fakta Unik</h4>
+						<p id="modal-fakta" class="text-base font-body text-[#361500] leading-relaxed"></p>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 	</div>
 </div>
 
+<style>
+	.custom-scrollbar::-webkit-scrollbar {
+		width: 6px;
+	}
+	.custom-scrollbar::-webkit-scrollbar-track {
+		background: rgba(212, 195, 163, 0.2); 
+	}
+	.custom-scrollbar::-webkit-scrollbar-thumb {
+		background: #c8a97a; 
+	}
+	.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+		background: #8a5a2b; 
+	}
+</style>
+
 <script>
 	import gsap from "gsap";
 	import batikData from "../data/batik.json";
 	
-	// Helper to resolve images for the client
-	// Since Astro compiles assets, we'll manually map the filenames to the processed URL if needed,
-	// but an easier way for client-side rendering is to use the public folder or rely on Vite's asset imports.
-	// Since we need it dynamically on the client, we can define a map of images.
 	const imageModules = import.meta.glob<{ default: { src: string } }>("../assets/images/*.png", { eager: true });
 	const getImageUrl = (filename: string) => {
 		const key = `../assets/images/${filename}`;
@@ -111,7 +134,8 @@
 				elFilosofi.innerHTML = "";
 				data.filosofi.forEach(poin => {
 					const li = document.createElement("li");
-					li.innerText = poin;
+					li.className = "flex gap-3 items-start";
+					li.innerHTML = `<span class="text-[#8a5a2b] text-xl leading-none mt-0.5">❖</span> <span>${poin}</span>`;
 					elFilosofi.appendChild(li);
 				});
 			}
@@ -121,6 +145,11 @@
 				modal.style.pointerEvents = "auto";
 				// Disable lenis scroll
 				document.documentElement.classList.add("overflow-hidden");
+				
+				// Reset scroll position on open
+				content.scrollTop = 0;
+				const rightScroll = content.querySelector('.custom-scrollbar');
+				if (rightScroll) rightScroll.scrollTop = 0;
 				
 				gsap.to(modal, { opacity: 1, duration: 0.4, ease: "power2.out" });
 				gsap.fromTo(content, 
