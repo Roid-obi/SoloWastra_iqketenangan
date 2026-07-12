@@ -6,7 +6,7 @@ const navLinks = [
 	{ href: "#mp-wrap", label: "Pembuatan" },
 	{ href: "#timeline-container", label: "Sejarah" },
 	{ href: "#modern-life-section", label: "Masa Kini" },
-	{ href: "#preserving-heritage", label: "Dampak SDG 11" },
+	{ href: "#preserving-heritage", label: "Dampak" },
 ];
 ---
 
@@ -78,13 +78,13 @@ const navLinks = [
 			<div class="w-16 h-px bg-[#cc9544]/50 mx-auto mt-4"></div>
 		</div>
 
-		<ul class="flex flex-col items-center gap-6 text-center w-full max-w-sm px-6">
+		<ul class="flex flex-col items-center gap-3 md:gap-5 text-center w-full max-w-sm px-6">
 			{
 				navLinks.map((link) => (
 					<li class="w-full overflow-hidden">
 						<a
 							href={link.href}
-							class="nav-link block font-heading text-4xl md:text-5xl text-[#fdfbf7] hover:text-[#cc9544] transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 py-2"
+							class="nav-link block font-heading text-2xl md:text-4xl text-[#fdfbf7] hover:text-[#cc9544] transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 py-1.5"
 						>
 							{link.label}
 						</a>
@@ -96,10 +96,13 @@ const navLinks = [
 </div>
 
 <style>
+	.nav-link {
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	}
 	.nav-link.active {
 		color: #cc9544 !important;
-		font-style: italic;
-		transform: scale(1.1);
+		transform: scale(1.15);
+		text-shadow: 0 4px 15px rgba(204, 149, 68, 0.4);
 	}
 </style>
 
