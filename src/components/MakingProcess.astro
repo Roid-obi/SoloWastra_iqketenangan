@@ -52,10 +52,26 @@ const processes = [
 >
   <div
     id="mp-track"
-    class="flex h-dvh items-center will-change-transform"
+    class="relative flex h-dvh items-center will-change-transform"
   >
+    <!-- Background Timeline -->
+    <div class="absolute top-1/2 left-0 w-[600vw] h-[2px] bg-neutral-light/5 -translate-y-1/2 z-0 pointer-events-none">
+      <!-- Lit up part of the timeline -->
+      <div id="mp-progress-line" class="h-full bg-accent/30 w-0 transition-none"></div>
+      
+      <!-- User follow dot (Glow) -->
+      <div id="mp-user-dot" class="absolute top-1/2 left-0 w-2 h-2 rounded-full bg-accent shadow-[0_0_15px_2px_var(--color-accent)] -translate-y-1/2 -translate-x-1/2 transition-none"></div>
+
+      <!-- Process Dots -->
+      {processes.map((p, i) => (
+        <div class="mp-timeline-dot absolute top-1/2 w-2 h-2 rounded-full bg-neutral-light/20 -translate-y-1/2 -translate-x-1/2 transition-colors duration-300" style={`left: ${(i + 1.5) * 100}vw;`}>
+          <div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] sm:text-xs font-mono tracking-widest uppercase text-neutral-light/30 whitespace-nowrap transition-colors duration-300 mp-timeline-text">{p.title}</div>
+        </div>
+      ))}
+    </div>
+
     <!-- Intro panel -->
-    <div class="mp-panel w-screen h-full shrink-0 flex flex-col justify-center items-center text-center px-6">
+    <div class="mp-panel relative z-10 w-screen h-full shrink-0 flex flex-col justify-center items-center text-center px-6">
       <div id="mp-intro-content" class="max-w-3xl">
         <p class="font-mono text-accent/50 text-xs tracking-[0.3em] uppercase mb-6">
           Tradisi & Proses
@@ -121,7 +137,10 @@ const processes = [
       el.style.width = "100%";
     });
   } else {
-    const distance = (track.scrollWidth - window.innerWidth) * 2;
+    const isMobile = window.innerWidth < 768;
+    const distance = isMobile 
+      ? (track.scrollWidth - window.innerWidth) * 1.2
+      : (track.scrollWidth - window.innerWidth) * 2;
 
     gsap.set("#mp-dots", { opacity: 0 });
 
@@ -145,6 +164,28 @@ const processes = [
             el.style.backgroundColor = isActive
               ? "var(--color-accent)"
               : "rgba(253, 251, 247, 0.15)";
+          });
+
+          // Update Background Timeline
+          const progressPx = absX + (vw / 2);
+          const progressLine = document.getElementById("mp-progress-line");
+          const userDot = document.getElementById("mp-user-dot");
+          if (progressLine) progressLine.style.width = `${progressPx}px`;
+          if (userDot) userDot.style.left = `${progressPx}px`;
+
+          // Light up background timeline dots
+          const timelineDots = gsap.utils.toArray<HTMLElement>(".mp-timeline-dot");
+          timelineDots.forEach((dot, i) => {
+             const dotLeft = (i + 1.5) * vw;
+             if (progressPx >= dotLeft) {
+                 dot.style.backgroundColor = "var(--color-accent)";
+                 const text = dot.querySelector(".mp-timeline-text") as HTMLElement;
+                 if (text) text.style.color = "var(--color-accent)";
+             } else {
+                 dot.style.backgroundColor = "rgba(253, 251, 247, 0.2)";
+                 const text = dot.querySelector(".mp-timeline-text") as HTMLElement;
+                 if (text) text.style.color = "rgba(253, 251, 247, 0.3)";
+             }
           });
         },
       },
