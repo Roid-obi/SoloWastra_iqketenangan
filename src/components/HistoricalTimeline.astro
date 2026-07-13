@@ -4,11 +4,13 @@ import history1 from "../assets/history/history1.webp";
 import history2 from "../assets/history/history2.webp";
 import history3 from "../assets/history/history3.webp";
 import history4 from "../assets/history/history4.webp";
+import timelineBg from "../assets/timeline.webp";
 
 const history1Image = history1.src;
 const history2Image = history2.src;
 const history3Image = history3.src;
 const history4Image = history4.src;
+const timelineBgImage = timelineBg.src;
 
 const timelineData = [
   {
@@ -39,7 +41,7 @@ const timelineData = [
 ---
 
 <section>
-    <div id="timeline-container" class="min-h-screen relative bg-[url('src/assets/timeline.webp')] bg-cover bg-center">
+    <div id="timeline-container" class="min-h-screen relative bg-cover bg-center" style={`background-image: url('${timelineBgImage}')`}>
         <div class="absolute inset-0 bg-black/80 flex items-center justify-center perspective-distant">
             <div id="timeline-header" class="flex flex-col justify-center items-center min-h-screen m-auto text-center perspective-normal">
                 <h2 class="opacity-0 antialiased md:subpixel-antialiased font-heading text-4xl sm:text-7xl lg:text-8xl text-neutral-light tracking-tight leading-[1.1] px-4 sm:px-0" style="z-index: 2;">Melintasi L<span class="text-accent">o</span>rong Waktu</h2>
