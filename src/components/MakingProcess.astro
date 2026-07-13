@@ -55,7 +55,7 @@ const processes = [
     class="relative flex h-dvh items-center will-change-transform"
   >
     <!-- Background Timeline -->
-    <div class="absolute top-1/2 left-0 w-[600vw] h-[2px] bg-neutral-light/5 -translate-y-1/2 z-0 pointer-events-none">
+    <div id="mp-bg-timeline" class="absolute top-1/2 left-0 w-[600vw] h-[2px] bg-neutral-light/5 -translate-y-1/2 z-0 pointer-events-none opacity-0">
       <!-- Lit up part of the timeline -->
       <div id="mp-progress-line" class="h-full bg-accent/30 w-0 transition-none"></div>
       
@@ -192,11 +192,12 @@ const processes = [
     });
 
     tl.fromTo("#mp-intro-content > *", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.03, stagger: {each: 0.01, from: "start", ease: "easeOut"} })
-      .to("#mp-dots", { opacity: 1, duration: 0.01 })
+      .to("#mp-bg-timeline", { opacity: 1, duration: 0.02 })
+      .to("#mp-dots", { opacity: 1, duration: 0.01 }, "<")
       .to(track, {
         x: -(track.scrollWidth - window.innerWidth),
         ease: "none",
-        duration: 0.96,
+        duration: 0.94,
       });
 
     ScrollTrigger.refresh();
