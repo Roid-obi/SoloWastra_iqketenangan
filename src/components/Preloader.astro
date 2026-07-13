@@ -1,0 +1,114 @@
+---
+---
+<div id="global-preloader" class="fixed inset-0 z-[100] flex flex-col items-center justify-center pointer-events-none">
+	<!-- Split Background Panels for Curtain Effect -->
+	<div class="preloader-panel preloader-top absolute top-0 left-0 w-full h-1/2 bg-[#0d0500] pointer-events-auto overflow-hidden">
+		<div class="absolute bottom-0 left-0 w-full h-[200%] opacity-20 bg-[radial-gradient(circle_at_50%_50%,_#4d1e00_0%,_transparent_60%)] pointer-events-none"></div>
+	</div>
+	<div class="preloader-panel preloader-bottom absolute bottom-0 left-0 w-full h-1/2 bg-[#0d0500] pointer-events-auto overflow-hidden">
+		<div class="absolute top-0 left-0 w-full h-[200%] opacity-20 bg-[radial-gradient(circle_at_50%_50%,_#4d1e00_0%,_transparent_60%)] pointer-events-none"></div>
+	</div>
+	
+	<!-- Content -->
+	<div class="preloader-content relative z-10 flex flex-col items-center pointer-events-auto">
+		<!-- Elegant Typography -->
+		<h2 class="preloader-title font-heading text-4xl sm:text-5xl lg:text-6xl text-[#fdfbf7] tracking-wider mb-2 opacity-0">
+			Solo<span class="text-[#cc9544]">Wastra</span>
+		</h2>
+		<p class="preloader-subtitle font-body text-[#c9b69e] text-xs sm:text-sm tracking-[0.3em] uppercase mb-8 opacity-0">
+			Memuat Mahakarya
+		</p>
+		
+		<!-- Loading Line -->
+		<div class="w-48 sm:w-64 h-[1px] bg-[#cc9544]/20 relative overflow-hidden">
+			<div class="preloader-progress absolute top-0 left-0 h-full w-full bg-[#cc9544] origin-left scale-x-0"></div>
+		</div>
+	</div>
+</div>
+
+<script>
+	import { gsap } from "gsap";
+	
+	document.addEventListener("DOMContentLoaded", () => {
+		const preloader = document.getElementById("global-preloader");
+		if (!preloader) return;
+		
+		// Prevent any native scrolling during load
+		document.body.style.overflow = "hidden";
+		
+		// 1. Initial Intro Animation for the preloader itself
+		const tl = gsap.timeline();
+		tl.to(".preloader-title", { opacity: 1, y: 0, duration: 1, ease: "power2.out" })
+		  .to(".preloader-subtitle", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, "-=0.6")
+		  .to(".preloader-progress", { 
+			  scaleX: 0.7, // Fake initial progress
+			  duration: 1.5, 
+			  ease: "power1.inOut" 
+		  }, "-=0.4");
+
+		// 2. Wait for window load event to ensure assets are ready
+		let isLoaded = false;
+		
+		const finishLoading = () => {
+			if (isLoaded) return;
+			isLoaded = true;
+			
+			// Kill any ongoing fake loading animations on the progress bar to prevent conflicts
+			gsap.killTweensOf(".preloader-progress");
+			
+			// Complete the progress bar
+			gsap.to(".preloader-progress", {
+				scaleX: 1,
+				duration: 0.5,
+				ease: "power2.out",
+				onComplete: () => {
+					// 1. Elegantly fade and scale down the content first
+					gsap.to(".preloader-content", {
+						opacity: 0,
+						scale: 0.9,
+						duration: 0.6,
+						ease: "power3.inOut"
+					});
+					
+					// 2. Dispatch custom event so Hero animation prepares underneath
+					setTimeout(() => {
+						window.dispatchEvent(new Event("preloaderComplete"));
+					}, 400);
+					
+					// 3. Open the curtains!
+					gsap.to(".preloader-top", {
+						yPercent: -100,
+						duration: 1.2,
+						ease: "expo.inOut",
+						delay: 0.4
+					});
+					
+					gsap.to(".preloader-bottom", {
+						yPercent: 100,
+						duration: 1.2,
+						ease: "expo.inOut",
+						delay: 0.4,
+						onComplete: () => {
+							preloader.style.display = "none";
+							document.body.style.overflow = "";
+						}
+					});
+				}
+			});
+		};
+
+		// If everything loads very quickly, we still want a minimum display time
+		// so the user sees the elegant intro.
+		const minTime = 1200; // ms
+		const startTime = Date.now();
+
+		window.addEventListener("load", () => {
+			const elapsedTime = Date.now() - startTime;
+			const remainingTime = Math.max(0, minTime - elapsedTime);
+			setTimeout(finishLoading, remainingTime);
+		});
+
+		// Fallback in case 'load' never fires perfectly or takes too long (max 6 seconds)
+		setTimeout(finishLoading, 6000);
+	});
+</script>

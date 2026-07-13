@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import 'lenis/dist/lenis.css';
+import Preloader from "../components/Preloader.astro";
 
 interface Props {
 	title?: string;
@@ -27,8 +28,17 @@ const { title = "SoloWastra | Eksplorasi Warisan Mahakarya Batik Solo" } =
 			href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
 			rel="stylesheet"
 		/>
+
+		<!-- Force page to start at the top on reload -->
+		<script is:inline>
+			if (history.scrollRestoration) {
+				history.scrollRestoration = 'manual';
+			}
+			window.scrollTo(0, 0);
+		</script>
 	</head>
 	<body class="bg-[var(--color-neutral-dark)] text-[var(--color-neutral-light)] font-body antialiased overflow-x-hidden selection:bg-[var(--color-accent)] selection:text-white">
+		<Preloader />
 		<slot />
 
 

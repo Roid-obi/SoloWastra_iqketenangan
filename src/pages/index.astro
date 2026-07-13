@@ -70,7 +70,15 @@ import Dummy from "../components/Dummy.astro";
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-	initSmoothScroll();
+	const lenis = initSmoothScroll();
+	
+	// Pause scroll initially while preloader is active
+	if (lenis) {
+		lenis.stop();
+		window.addEventListener("preloaderComplete", () => {
+			lenis.start();
+		});
+	}
 
 	// Register ScrollTrigger
 	gsap.registerPlugin(ScrollTrigger);
