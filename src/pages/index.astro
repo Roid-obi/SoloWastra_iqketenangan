@@ -101,31 +101,39 @@ import Dummy from "../components/Dummy.astro";
 	let mm = gsap.matchMedia();
 
 	mm.add("(min-width: 768px)", () => {
-		// Animate Introduction Card (Shrink and rotate left)
-		gsap.to(".intro-card", {
+		// Animate Introduction Card (Shrink and rotate left with delay)
+		let introTl = gsap.timeline({
 			scrollTrigger: {
 				trigger: "#intro-container",
 				start: "top top",
 				end: "bottom top",
 				scrub: true,
-			},
-			scale: 0.9,
-			rotation: -3,
-			opacity: 0.8,
-			ease: "none",
+			}
 		});
+		introTl.to({}, {duration: 0.4})
+			   .to(".intro-card", {
+					scale: 0.9,
+					rotation: -3,
+					opacity: 0.8,
+					ease: "none",
+					duration: 0.6
+			   });
 
-		// Animate WhySolo Card (Shrink and rotate right)
-		gsap.to(".why-card", {
+		// Animate WhySolo Card (Shrink and rotate right with delay)
+		let whyTl = gsap.timeline({
 			scrollTrigger: {
 				trigger: "#why-container",
 				start: "top top",
 				end: "bottom top",
 				scrub: true,
-			},
-			scale: 0.9,
-			rotation: 3,
-			ease: "none",
+			}
 		});
+		whyTl.to({}, {duration: 0.4})
+			 .to(".why-card", {
+					scale: 0.9,
+					rotation: 3,
+					ease: "none",
+					duration: 0.6
+			 });
 	});
 </script>
